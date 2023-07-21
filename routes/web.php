@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', HomeController::class)->name('home');
+
+Route::get('/policy', function(){
+    return view('policy');
+})->name('policy');
+
+Route::get('/terms', function(){
+    return view('terms');
+})->name('terms');
 
 Route::middleware([
     'auth:sanctum',
