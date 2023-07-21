@@ -9,17 +9,20 @@ class Quotation extends Model
 {
     use HasFactory;
 
-    // protected $fillable = ['job_request_id', 'user_id', 'price', 'time_estimate', 'message', 'status'];
-
+    // La propiedad $guarded indica qué atributos NO pueden ser asignados masivamente (mass assignable).
     protected $guarded = [];
 
-    // Relación muchos a uno con job_request
+    // Relación muchos a uno con el modelo JobRequest
+    // Este método define la relación entre la cotización y la solicitud de trabajo (JobRequest).
+    // Una cotización pertenece a una solicitud de trabajo.
     public function jobRequest()
     {
         return $this->belongsTo(JobRequest::class);
     }
 
-    // Relación muchos a uno con user
+    // Relación muchos a uno con el modelo User
+    // Este método define la relación entre la cotización y el usuario (User) que realizó la cotización.
+    // Una cotización pertenece a un usuario.
     public function user()
     {
         return $this->belongsTo(User::class);

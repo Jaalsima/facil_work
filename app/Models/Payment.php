@@ -9,23 +9,28 @@ class Payment extends Model
 {
     use HasFactory;
 
-    // protected $fillable = ['user_id', 'quotation_id', 'amount', 'status', 'payment_method', 'transaction_id'];
-
+    // La propiedad $guarded indica qué atributos NO pueden ser asignados masivamente (mass assignable).
     protected $guarded = [];
 
-    // Relación muchos a uno con job_request
+    // Relación muchos a uno con el modelo JobRequest
+    // Este método define la relación entre el pago y la solicitud de trabajo (JobRequest).
+    // Un pago pertenece a una solicitud de trabajo.
     public function jobRequest()
     {
         return $this->belongsTo(JobRequest::class);
     }
 
-    // Relación muchos a uno con user
+    // Relación muchos a uno con el modelo User
+    // Este método define la relación entre el pago y el usuario (User) que realizó el pago.
+    // Un pago pertenece a un usuario.
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    // Relación muchos a uno con quotation
+    // Relación muchos a uno con el modelo Quotation
+    // Este método define la relación entre el pago y la cotización (Quotation) asociada.
+    // Un pago pertenece a una cotización.
     public function quotation()
     {
         return $this->belongsTo(Quotation::class);

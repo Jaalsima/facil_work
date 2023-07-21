@@ -9,17 +9,20 @@ class JobReview extends Model
 {
     use HasFactory;
 
-    // protected $fillable = ['job_request_id', 'user_id', 'rating', 'comment'];
-
+    // La propiedad $guarded indica qué atributos NO pueden ser asignados masivamente (mass assignable).
     protected $guarded = [];
 
-    // Relación muchos a uno con job_request
+    // Relación muchos a uno con el modelo JobRequest
+    // Este método define la relación entre la reseña de trabajo y la solicitud de trabajo (JobRequest).
+    // Una reseña de trabajo pertenece a una solicitud de trabajo.
     public function jobRequest()
     {
         return $this->belongsTo(JobRequest::class);
     }
 
-    // Relación muchos a uno con user
+    // Relación muchos a uno con el modelo User
+    // Este método define la relación entre la reseña de trabajo y el usuario (User).
+    // Una reseña de trabajo pertenece a un usuario.
     public function user()
     {
         return $this->belongsTo(User::class);

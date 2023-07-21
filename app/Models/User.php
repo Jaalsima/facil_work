@@ -20,28 +20,10 @@ class User extends Authenticatable
     use TwoFactorAuthenticatable;
     use HasRoles;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-
-    // Definición de propiedad '$guarded' para gestionar la asignación masiva
-    
+    // La propiedad $guarded indica qué atributos no pueden ser asignados masivamente (mass assignable).
     protected $guarded = [];
-    
-    // protected $fillable = [
-    //     'name',
-    //     'email',
-    //     'password',
-    //     'location',
-    // ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
+    // La propiedad $hidden indica qué atributos deben ser ocultados al serializar el modelo.
     protected $hidden = [
         'password',
         'remember_token',
@@ -49,24 +31,15 @@ class User extends Authenticatable
         'two_factor_secret',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
+    // La propiedad $casts indica cómo deben ser tratados ciertos atributos al acceder a ellos.
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
 
-    /**
-     * The accessors to append to the model's array form.
-     *
-     * @var array<int, string>
-     */
+    // La propiedad $appends indica qué atributos adicionales deben ser agregados al modelo al convertirlo a array.
     protected $appends = [
         'profile_photo_url',
     ];
-
 
     // Relación uno a muchos con certifications
     public function certifications()

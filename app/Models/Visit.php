@@ -9,6 +9,7 @@ class Visit extends Model
 {
     use HasFactory;
 
+    // La propiedad $fillable indica qué atributos pueden ser asignados masivamente (mass assignable).
     protected $fillable = ['job_request_id', 'user_id', 'date', 'time', 'status'];
 
     // Relación muchos a uno con la solicitud de trabajo (JobRequest)
@@ -23,4 +24,3 @@ class Visit extends Model
         return $this->belongsTo(User::class);
     }
 }
-

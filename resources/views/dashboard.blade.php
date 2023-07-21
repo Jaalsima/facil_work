@@ -12,64 +12,71 @@
             </div>
         </div>
     </div>
-</x-app-layout> --}}
-
+</x-app-layout>
+ --}}
 
 <x-app-layout>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Panel de Control del Cliente</div>
+    <div class="container mx-auto">
+        <div class="flex justify-center">
+            <div class="w-full max-w-md">
+                <div class="bg-white shadow-md rounded-lg px-8 py-6">
+                    <div class="text-xl font-bold mb-6">Panel de Control del Cliente</div>
 
-                    <div class="card-body">
+                    <div class="mb-4">
                         <p>Bienvenido, {{ Auth::user()->name }}!</p>
+                    </div>
 
-                        <h4>Mis Solicitudes de Trabajo</h4>
-                        <table class="table">
+                    <div class="mb-4">
+                        <h4 class="text-xl font-bold mb-2">Mis Solicitudes de Trabajo</h4>
+                        <table class="w-full border-collapse">
                             <thead>
                                 <tr>
-                                    <th>Número de Solicitud</th>
-                                    <th>Fecha de Creación</th>
-                                    <th>Estado</th>
-                                    <th>Acciones</th>
+                                    <th class="border border-gray-400 px-4 py-2">Número de Solicitud</th>
+                                    <th class="border border-gray-400 px-4 py-2">Fecha de Creación</th>
+                                    <th class="border border-gray-400 px-4 py-2">Estado</th>
+                                    <th class="border border-gray-400 px-4 py-2">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($workRequests as $workRequest)
                                     <tr>
-                                        <td>{{ $workRequest->id }}</td>
-                                        <td>{{ $workRequest->created_at }}</td>
-                                        <td>{{ $workRequest->status }}</td>
-                                        <td>
-                                            <a href="{{ route('work_request.show', $workRequest->id) }}" class="btn btn-sm btn-primary">Ver Detalles</a>
+                                        <td class="border border-gray-400 px-4 py-2">{{ $workRequest->id }}</td>
+                                        <td class="border border-gray-400 px-4 py-2">{{ $workRequest->created_at }}</td>
+                                        <td class="border border-gray-400 px-4 py-2">{{ $workRequest->status }}</td>
+                                        <td class="border border-gray-400 px-4 py-2">
+                                            <a href="{{ route('work_request.show', $workRequest->id) }}"
+                                                class="text-blue-500 hover:text-blue-700">Ver Detalles</a>
                                             @if ($workRequest->status === 'pendiente')
-                                                <a href="{{ route('work_request.edit', $workRequest->id) }}" class="btn btn-sm btn-info">Editar</a>
+                                                <a href="{{ route('work_request.edit', $workRequest->id) }}"
+                                                    class="text-blue-500 hover:text-blue-700 ml-4">Editar</a>
                                             @endif
                                         </td>
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
+                    </div>
 
-                        <h4>Mis Cotizaciones Recibidas</h4>
-                        <table class="table">
+                    <div>
+                        <h4 class="text-xl font-bold mb-2">Mis Cotizaciones Recibidas</h4>
+                        <table class="w-full border-collapse">
                             <thead>
                                 <tr>
-                                    <th>Número de Cotización</th>
-                                    <th>Fecha de Creación</th>
-                                    <th>Estado</th>
-                                    <th>Acciones</th>
+                                    <th class="border border-gray-400 px-4 py-2">Número de Cotización</th>
+                                    <th class="border border-gray-400 px-4 py-2">Fecha de Creación</th>
+                                    <th class="border border-gray-400 px-4 py-2">Estado</th>
+                                    <th class="border border-gray-400 px-4 py-2">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($quotations as $quotation)
                                     <tr>
-                                        <td>{{ $quotation->id }}</td>
-                                        <td>{{ $quotation->created_at }}</td>
-                                        <td>{{ $quotation->status }}</td>
-                                        <td>
-                                            <a href="{{ route('quotation.show', $quotation->id) }}" class="btn btn-sm btn-primary">Ver Detalles</a>
+                                        <td class="border border-gray-400 px-4 py-2">{{ $quotation->id }}</td>
+                                        <td class="border border-gray-400 px-4 py-2">{{ $quotation->created_at }}</td>
+                                        <td class="border border-gray-400 px-4 py-2">{{ $quotation->status }}</td>
+                                        <td class="border border-gray-400 px-4 py-2">
+                                            <a href="{{ route('quotation.show', $quotation->id) }}"
+                                                class="text-blue-500 hover:text-blue-700">Ver Detalles</a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -80,4 +87,4 @@
             </div>
         </div>
     </div>
-</x-guest-layout>
+</x-app-layout>
