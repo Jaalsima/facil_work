@@ -25,4 +25,12 @@
             </div>
         </div>
     </div>
+    <!-- Add Tailwind CSS classes for responsive footer -->
+    <style>
+        @media (max-width: 768px) {
+            .footer-links {
+                display: none;
+            }
+        }
+    </style>
 </footer>
