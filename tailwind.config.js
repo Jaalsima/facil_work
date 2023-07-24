@@ -16,8 +16,12 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            backgroundImage: {
+                'before': "url('public/images/before.svg')",
+            }
         },
     },
 
     plugins: [forms, typography],
+
 };

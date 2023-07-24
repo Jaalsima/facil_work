@@ -74,4 +74,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/visits/{visit}', [VisitController::class, 'show'])->name('visits.show');
     Route::get('/visits/{visit}/confirm', [VisitController::class, 'confirmVisit'])->name('visits.confirmVisit');
     Route::get('/visits/{visit}/complete', [VisitController::class, 'completeVisit'])->name('visits.completeVisit');
+
+
+
+    Route::get('/visits/slug:{visit}');
 });
