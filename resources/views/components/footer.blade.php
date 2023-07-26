@@ -1,4 +1,4 @@
-<footer class="bg-gray-400 dark:bg-gray-700 py-4 shadow-inner shadow-gray-500">
+{{-- <footer class="bg-blue-300 dark:bg-gray-700 py-4 shadow-inner shadow-gray-500">
     <div class="container mx-auto px-4">
         <div class="flex flex-wrap items-center justify-between">
             <div class="w-full md:w-1/2 lg:w-1/4 mb-4 md:mb-0">
@@ -44,4 +44,55 @@
             </div>
         </div>
     </div>
-</footer>
+</footer> --}}
+
+
+<div class="flex justify-around bg-blue-300 py-4 text-md shadow-inner shadow-blue-700">
+    <div class="p-3">
+        <h1 class="font-semibold text-lg">Contacto</h1>
+        <p><b>Correo:</b> coderman1980@gmail.com</p>
+        <p><b>Teléfono:</b> 12345678</p>
+    </div>
+    <div class="p-3">
+        <h1 class="font-semibold text-lg text-center">Servicios</h1>
+        <div class="flex">
+            <div>
+                <p class="mx-2">Reparaciones domésticas</p>
+                <p class="mx-2">Reparaciones electrónicas</p>
+                <p class="mx-2">Reparaciones de Plomería</p>
+            </div>
+            <div>
+                <p class="mx-2">Mantenimientos perventivos</p>
+                <p class="mx-2">Mantenimientos correctivos</p>
+                <p class="mx-2">Mantenimientos predictivo</p>
+            </div>
+        </div>
+
+    </div>
+    <div class="p-3 text-center">
+        <h1 class="font-semibold text-lg">Redes Sociales</h1>
+        <ul class="list-none flex justify-center">
+            <li class="m-2"><a href="https://facebook.com"
+                    class="text-gray-600 dark:text-gray-300 px-4 hover:text-gray-800 dark:hover:text-gray-200"><img
+                        src="{{ asset('images/sn-icons/facebook.svg') }}" alt="Facebook"
+                        class="rounded-full h-9 w-9  hover:bg-gray-50"></a></li>
+            <li class="m-2"><a href="https://twitter.com"
+                    class="text-gray-600 dark:text-gray-300 px-4 hover:text-gray-800 dark:hover:text-gray-200 "><img
+                        src="{{ asset('images/sn-icons/twitter.svg') }}" alt="Twitter"
+                        class="rounded-full h-9 w-9  hover:bg-gray-50"></a></li>
+            <li class="m-2"><a href="https://instagram.com"
+                    class="text-gray-600 dark:text-gray-300 px-4 hover:text-gray-800 dark:hover:text-gray-200"><img
+                        src="{{ asset('images/sn-icons/instagram.svg') }}" alt="Instagram"
+                        class="rounded-full h-9 w-9  hover:bg-gray-50"></a></li>
+        </ul>
+    </div>
+    <div class="p-3 text-end">
+        <h1 class="font-semibold text-lg">Términos de Servicio</h1>
+
+        <p class="text-md"><a href="#" class="underline">términos y condiciones</a></p>
+
+        <p><a href="https://google.com/" class="underline"> términos de servicio de Google</a>.</p>
+        &copy; 2023
+    </div>
+
+</div>
