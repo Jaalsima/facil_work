@@ -10,6 +10,7 @@ use App\Http\Controllers\SkillController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VisitController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminPanelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,6 +77,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/visits/{visit}/complete', [VisitController::class, 'completeVisit'])->name('visits.completeVisit');
 
 
-
-    Route::get('/visits/slug:{visit}');
+    Route::middleware(['auth'])->group(function () {
+        Route::get('/admin/dashboard', [AdminPanelController::class, 'index'])->name('admin.dashboard');
+    });
 });
