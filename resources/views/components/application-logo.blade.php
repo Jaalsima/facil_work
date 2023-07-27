@@ -12,7 +12,6 @@
 
 
 <div class="text-white font-bold text-xl flex items-center">
-    <img src="{{ asset('images/logo.png') }}" alt="Fácil Work Logo"
-        class="border-2 border-gray-200 rounded-full w-12 h-12 mr-2">
-    <span class=" text-white text-2xl">Fácil Work</span>
+    <img src="{{ asset('images/logo.png') }}" alt="Fácil Work Logo" class=" w-12 h-12 mr-2">
+    <span class=" text-white text-2xl" style="text-shadow:0 2px 1px rgba(0,0,0);">Fácil Work</span>
 </div>

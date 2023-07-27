@@ -10,7 +10,7 @@
             <div>
                 <div>
                     <a href="#"
-                        class="w-3/4 mt-10 h-auto flex flex-col items-center shadow-lg shadow-gray-500 bg-white border border-gray-200 rounded-lg md:flex-row hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                        class=" p-4 w-3/4 mt-10 h-auto flex flex-col items-center shadow-lg shadow-gray-500 bg-white border border-gray-200 rounded-lg md:flex-row hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                         <img class="object-cover w-96 rounded-t-lg h-auto md:h-auto md:rounded-none md:rounded-l-lg"
                             src="{{ asset('images/worker1.jpg') }}" alt="Worker">
                         <div class="flex flex-col justify-between p-4 leading-normal">

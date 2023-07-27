@@ -47,7 +47,7 @@
 </footer> --}}
 
 
-<div class="flex justify-around bg-blue-300 py-4 text-md shadow-inner shadow-blue-700">
+<div class="flex justify-around bg-slate-500 py-4 text-md shadow-inner shadow-blue-700 text-gray-200">
     <div class="p-3">
         <h1 class="font-semibold text-lg">Contacto</h1>
         <p><b>Correo:</b> coderman1980@gmail.com</p>

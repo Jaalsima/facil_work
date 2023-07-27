@@ -72,5 +72,7 @@
                 </x-button>
             </div>
         </form>
+        <hr class="mt-4">
+        <x-sn-icons />
     </x-authentication-card>
 </x-guest-layout>
