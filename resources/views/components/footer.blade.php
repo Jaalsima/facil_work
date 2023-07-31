@@ -47,10 +47,10 @@
 </footer> --}}
 
 
-<div class="flex justify-around bg-slate-500 py-4 text-md shadow-inner shadow-blue-700 text-gray-200">
+<div class="flex justify-around bg-slate-500 py-4 text-md shadow-inner shadow-blue-500 text-gray-200">
     <div class="p-3">
         <h1 class="font-semibold text-lg">Contacto</h1>
-        <p><b>Correo:</b> coderman1980@gmail.com</p>
+        <p><b>Correo:</b> example-number@example.com</p>
         <p><b>Teléfono:</b> 12345678</p>
     </div>
     <div class="p-3">

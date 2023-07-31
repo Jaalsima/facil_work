@@ -1,4 +1,4 @@
-<nav class="bg-blue-500 dark:bg-gray-900 shadow-md shadow-blue-700">
+<nav class="bg-blue-500 dark:bg-gray-900 shadow-md shadow-blue-700 mb-5">
     <div class="container mx-auto px-4 py-2 flex justify-between items-center">
         <a href="{{ route('home') }}">
             <x-application-logo />
