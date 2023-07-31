@@ -1,4 +1,4 @@
-{{-- <footer class="bg-blue-300 dark:bg-gray-700 py-4 shadow-inner shadow-gray-500">
+{{-- <footer class="bg-gray-300 dark:bg-gray-700 py-4 shadow-inner shadow-gray-900">
     <div class="container mx-auto px-4">
         <div class="flex flex-wrap items-center justify-between">
             <div class="w-full md:w-1/2 lg:w-1/4 mb-4 md:mb-0">
@@ -47,7 +47,7 @@
 </footer> --}}
 
 
-<div class="flex justify-around bg-slate-500 py-4 text-md shadow-inner shadow-blue-500 text-gray-200">
+<div class="flex justify-around bg-gray-900 py-4 text-md shadow-inner shadow-gray-500 text-gray-200">
     <div class="p-3">
         <h1 class="font-semibold text-lg">Contacto</h1>
         <p><b>Correo:</b> example-number@example.com</p>

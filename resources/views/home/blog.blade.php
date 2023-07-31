@@ -2,20 +2,21 @@
     <div>
         <livewire:navbar />
 
-        <div class="bg-gray-100 shadow-lg shadow-gray-400 rounded-lg w-1/2 mt-16 mx-auto p-4 text-center text-6xl text-bold text-gray-600">
+        <div
+            class="bg-gray-100 shadow-lg shadow-gray-400 rounded-lg w-1/2 mt-16 mx-auto p-4 text-center text-6xl text-bold text-gray-600">
             <h1>BLOG Fácil Work</h1>
         </div>
 
         <div class="flex w-3/4 mx-auto my-6">
             <div class="">
                 <div class="pl-4 pr-12 py-4">
-                    <a href="#"
-                        class="w-full mt-10 h-auto flex"  id="blog1">
+                    <a href="#" class="w-full mt-10 h-auto flex" id="blog1">
                         <div class="bg-gray-300 w-1/3 h-60 relative p-1 rounded-md shadow-md shadow-gray-400">
                             <img class="bg-slate-700 w-full h-full object-cover rounded-lg "
-                            src="{{ asset('images/worker1.jpg') }}" alt="Worker">
+                                src="{{ asset('images/worker1.jpg') }}" alt="Worker">
                         </div>
-                        <div class="w-2/3 h-auto ml-12 p-4 text-justify rounded-md leading-normal bg-white shadow-md shadow-gray-400">
+                        <div
+                            class="w-2/3 h-auto ml-12 p-4 text-justify rounded-md leading-normal bg-white shadow-md shadow-gray-400">
                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                                 blog 1</h5>
                             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise
@@ -39,60 +40,80 @@
                                 dolor
                                 sit amet.</h5>
                             <div>
-                            <div class="bg-gray-300 p-1 mx-4 mb-2 float-right w-2/5 h-70 relative rounded-md">
-                                <img class="w-full h-full object-cover rounded-lg"
-                                src="{{ asset('images/worker5.jpg') }}" alt="Worker" class=" w-4 ">
-                            </div>
-                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-justify">Here are the biggest enterprise
-                                    technology acquisitions of 2021 so far, in reverse chronological order. Lorem ipsum dolor
+                                <div class="bg-gray-300 p-1 mx-4 mb-2 float-right w-2/5 h-70 relative rounded-md">
+                                    <img class="w-full h-full object-cover rounded-lg"
+                                        src="{{ asset('images/worker5.jpg') }}" alt="Worker" class=" w-4 ">
+                                </div>
+                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-justify">Here are the
+                                    biggest enterprise
+                                    technology acquisitions of 2021 so far, in reverse chronological order. Lorem ipsum
+                                    dolor
                                     sit
-                                    amet consectetur adipisicing elit. Dicta possimus accusamus sed corporis facilis laudantium
+                                    amet consectetur adipisicing elit. Dicta possimus accusamus sed corporis facilis
+                                    laudantium
                                     ea,
-                                    et libero? A, doloremque quas placeat commodi aliquam at facilis, adipisci, neque ipsum ipsa
-                                    maiores officia harum ab cumque sint iure repudiandae molestiae unde eum ad provident
+                                    et libero? A, doloremque quas placeat commodi aliquam at facilis, adipisci, neque
+                                    ipsum ipsa
+                                    maiores officia harum ab cumque sint iure repudiandae molestiae unde eum ad
+                                    provident
                                     dolorum
                                     repellat odio amet. Voluptas, ut placeat. Lorem ipsum dolor sit amet consectetur,
                                     adipisicing
-                                    elit. Beatae culpa exercitationem labore officiis odio, quaerat, ea incidunt nam ad tempore
-                                    deserunt corporis harum odit accusantium blanditiis, pariatur debitis. Facilis dignissimos
-                                    saepe, nihil blanditiis rem itaque a voluptate ipsa quasi fuga, sapiente magni adipisci
+                                    elit. Beatae culpa exercitationem labore officiis odio, quaerat, ea incidunt nam ad
+                                    tempore
+                                    deserunt corporis harum odit accusantium blanditiis, pariatur debitis. Facilis
+                                    dignissimos
+                                    saepe, nihil blanditiis rem itaque a voluptate ipsa quasi fuga, sapiente magni
+                                    adipisci
                                     ipsum
                                     harum corrupti cumque optio vitae recusandae dolorem! Ipsum dolore, libero vitae at
                                     temporibus
-                                    consectetur nulla autem numquam ullam officia cumque adipisci perspiciatis eius incidunt
+                                    consectetur nulla autem numquam ullam officia cumque adipisci perspiciatis eius
+                                    incidunt
                                     diassumenda corporis unde iste
-                                    saepe, quis sequi rerum dignissimos, fugiat, praesentium aut. Accusamus aut illo, tempore
+                                    saepe, quis sequi rerum dignissimos, fugiat, praesentium aut. Accusamus aut illo,
+                                    tempore
                                     alias
-                                    nesciunt necessitatibus voluptatibus distinctio, ad provident incidunt temporibus in eum
+                                    nesciunt necessitatibus voluptatibus distinctio, ad provident incidunt temporibus in
+                                    eum
                                     ipsum,
-                                    dolore rerum. Et voluptatum perferendis molestiae! Illum maxime quia dolore distinctio nam
-                                    possimus aperiam labore, facere quas, aliquam neque, dolor quaerat nobis doloremque quis
+                                    dolore rerum. Et voluptatum perferendis molestiae! Illum maxime quia dolore
+                                    distinctio nam
+                                    possimus aperiam labore, facere quas, aliquam neque, dolor quaerat nobis doloremque
+                                    quis
                                     porro
-                                    est repellat consequatur dolores expedita aut sint minus. Quidem optio sunt voluptate, quas
-                                    alias debitis ipsam recusandae, quo laboriosam reprehenderit ullam minima perferendis
+                                    est repellat consequatur dolores expedita aut sint minus. Quidem optio sunt
+                                    voluptate, quas
+                                    alias debitis ipsam recusandae, quo laboriosam reprehenderit ullam minima
+                                    perferendis
                                     assumenda
-                                    cupiditate maxime nobis vel dignissimos autem porro! Optio repellat magni, esse corporis
+                                    cupiditate maxime nobis vel dignissimos autem porro! Optio repellat magni, esse
+                                    corporis
                                     dolorem
-                                    cupiditate ex suscipit asperiores laborum, voluptates eos veniam iste quos fugiat debitis?
-                                    Laborum officia cupiditate sed saepe, molestias nulla, fugit corrupti quidem a ad tempora
+                                    cupiditate ex suscipit asperiores laborum, voluptates eos veniam iste quos fugiat
+                                    debitis?
+                                    Laborum officia cupiditate sed saepe, molestias nulla, fugit corrupti quidem a ad
+                                    tempora
                                     sequi
-                                    incidunt eum cumque, nisi numquam autem eos commodi laboriosam. Dolor quam iusto cumque
+                                    incidunt eum cumque, nisi numquam autem eos commodi laboriosam. Dolor quam iusto
+                                    cumque
                                     dicta?
-                                    Ut nobis perspiciatis consectetur quae officiis dolore impedit iusto possimus molestias quos
+                                    Ut nobis perspiciatis consectetur quae officiis dolore impedit iusto possimus
+                                    molestias quos
                                     vero, repudiandae accusamus dignissimos earum! Perferendis exercitationem a et vero
                                     architecto
-                                    nemo, animi sunt! 
+                                    nemo, animi sunt!
                                 </p>
                             </div>
                         </div>
                     </a>
-                    <a href="#"
-                        class="w-full mt-10 h-auto flex">
+                    <a href="#" class="w-full mt-10 h-auto flex">
                         <div class="bg-gray-300 w-1/3 h-60 p-1 rounded-md shadow-md shadow-gray-400 sticky top-3">
                             <img class="bg-slate-700 w-full h-full object-cover rounded-lg "
-                            src="{{ asset('images/worker1.jpg') }}" alt="Worker">
+                                src="{{ asset('images/worker1.jpg') }}" alt="Worker">
                         </div>
-                        <div class="w-2/3 h-auto ml-12 p-4 text-justify rounded-md leading-normal bg-white shadow-md shadow-gray-400">
+                        <div
+                            class="w-2/3 h-auto ml-12 p-4 text-justify rounded-md leading-normal bg-white shadow-md shadow-gray-400">
                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                                 Lorem ipsum
                                 dolor
@@ -109,41 +130,52 @@
                                 maiores officia harum ab cumque sint iure repudiandae molestiae unde eum ad provident
                                 dolorum
                                 repellat odio amet. Voluptas, ut placeat.
-                                technology acquisitions of 2021 so far, in reverse chronological order. Lorem ipsum dolor
+                                technology acquisitions of 2021 so far, in reverse chronological order. Lorem ipsum
+                                dolor
                                 sit
-                                amet consectetur adipisicing elit. Dicta possimus accusamus sed corporis facilis laudantium
+                                amet consectetur adipisicing elit. Dicta possimus accusamus sed corporis facilis
+                                laudantium
                                 ea,
-                                et libero? A, doloremque quas placeat commodi aliquam at facilis, adipisci, neque ipsum ipsa
+                                et libero? A, doloremque quas placeat commodi aliquam at facilis, adipisci, neque ipsum
+                                ipsa
                                 maiores officia harum ab cumque sint iure repudiandae molestiae unde eum ad provident
                                 dolorum
                                 repellat odio amet. Voluptas, ut placeat. Lorem ipsum dolor sit amet consectetur,
                                 adipisicing
-                                elit. Beatae culpa exercitationem labore officiis odio, quaerat, ea incidunt nam ad tempore
-                                deserunt corporis harum odit accusantium blanditiis, pariatur debitis. Facilis dignissimos
+                                elit. Beatae culpa exercitationem labore officiis odio, quaerat, ea incidunt nam ad
+                                tempore
+                                deserunt corporis harum odit accusantium blanditiis, pariatur debitis. Facilis
+                                dignissimos
                                 saepe, nihil blanditiis rem itaque a voluptate ipsa quasi fuga, sapiente magni adipisci
                                 ipsum
                                 harum corrupti cumque optio vitae recusandae dolorem! Ipsum dolore, libero vitae at
                                 temporibus
                                 consectetur nulla autem numquam ullam officia cumque adipisci perspiciatis eius incidunt
                                 diassumenda corporis unde iste
-                                saepe, quis sequi rerum dignissimos, fugiat, praesentium aut. Accusamus aut illo, tempore
+                                saepe, quis sequi rerum dignissimos, fugiat, praesentium aut. Accusamus aut illo,
+                                tempore
                                 alias
                                 nesciunt necessitatibus voluptatibus distinctio, ad provident incidunt temporibus in eum
                                 ipsum,
-                                dolore rerum. Et voluptatum perferendis molestiae! Illum maxime quia dolore distinctio nam
+                                dolore rerum. Et voluptatum perferendis molestiae! Illum maxime quia dolore distinctio
+                                nam
                                 possimus aperiam labore, facere quas, aliquam neque, dolor quaerat nobis doloremque quis
                                 porro
-                                est repellat consequatur dolores expedita aut sint minus. Quidem optio sunt voluptate, quas
+                                est repellat consequatur dolores expedita aut sint minus. Quidem optio sunt voluptate,
+                                quas
                                 alias debitis ipsam recusandae, quo laboriosam reprehenderit ullam minima perferendis
                                 assumenda
                                 cupiditate maxime nobis vel dignissimos autem porro! Optio repellat magni, esse corporis
                                 dolorem
-                                cupiditate ex suscipit asperiores laborum, voluptates eos veniam iste quos fugiat debitis?
-                                Laborum officia cupiditate sed saepe, molestias nulla, fugit corrupti quidem a ad tempora
+                                cupiditate ex suscipit asperiores laborum, voluptates eos veniam iste quos fugiat
+                                debitis?
+                                Laborum officia cupiditate sed saepe, molestias nulla, fugit corrupti quidem a ad
+                                tempora
                                 sequi
                                 incidunt eum cumque, nisi numquam autem eos commodi laboriosam. Dolor quam iusto cumque
                                 dicta?
-                                Ut nobis perspiciatis consectetur quae officiis dolore impedit iusto possimus molestias quos
+                                Ut nobis perspiciatis consectetur quae officiis dolore impedit iusto possimus molestias
+                                quos
                                 vero, repudiandae accusamus dignissimos earum! Perferendis exercitationem a et vero
                                 architecto
                                 nemo, animi sunt! </p>
@@ -157,49 +189,69 @@
                                 dolor
                                 sit amet.</h5>
                             <div>
-                            <div class="bg-gray-300 p-1 mx-4 mb-2 float-right w-2/5 h-70 relative rounded-md">
-                                <img class="w-full h-full object-cover rounded-lg"
-                                src="{{ asset('images/worker5.jpg') }}" alt="Worker" class=" w-4 ">
-                            </div>
-                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-justify">Here are the biggest enterprise
-                                    technology acquisitions of 2021 so far, in reverse chronological order. Lorem ipsum dolor
+                                <div class="bg-gray-300 p-1 mx-4 mb-2 float-right w-2/5 h-70 relative rounded-md">
+                                    <img class="w-full h-full object-cover rounded-lg"
+                                        src="{{ asset('images/worker5.jpg') }}" alt="Worker" class=" w-4 ">
+                                </div>
+                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-justify">Here are the
+                                    biggest enterprise
+                                    technology acquisitions of 2021 so far, in reverse chronological order. Lorem ipsum
+                                    dolor
                                     sit
-                                    amet consectetur adipisicing elit. Dicta possimus accusamus sed corporis facilis laudantium
+                                    amet consectetur adipisicing elit. Dicta possimus accusamus sed corporis facilis
+                                    laudantium
                                     ea,
-                                    et libero? A, doloremque quas placeat commodi aliquam at facilis, adipisci, neque ipsum ipsa
-                                    maiores officia harum ab cumque sint iure repudiandae molestiae unde eum ad provident
+                                    et libero? A, doloremque quas placeat commodi aliquam at facilis, adipisci, neque
+                                    ipsum ipsa
+                                    maiores officia harum ab cumque sint iure repudiandae molestiae unde eum ad
+                                    provident
                                     dolorum
                                     repellat odio amet. Voluptas, ut placeat. Lorem ipsum dolor sit amet consectetur,
                                     adipisicing
-                                    elit. Beatae culpa exercitationem labore officiis odio, quaerat, ea incidunt nam ad tempore
-                                    deserunt corporis harum odit accusantium blanditiis, pariatur debitis. Facilis dignissimos
-                                    saepe, nihil blanditiis rem itaque a voluptate ipsa quasi fuga, sapiente magni adipisci
+                                    elit. Beatae culpa exercitationem labore officiis odio, quaerat, ea incidunt nam ad
+                                    tempore
+                                    deserunt corporis harum odit accusantium blanditiis, pariatur debitis. Facilis
+                                    dignissimos
+                                    saepe, nihil blanditiis rem itaque a voluptate ipsa quasi fuga, sapiente magni
+                                    adipisci
                                     ipsum
                                     harum corrupti cumque optio vitae recusandae dolorem! Ipsum dolore, libero vitae at
                                     temporibus
-                                    consectetur nulla autem numquam ullam officia cumque adipisci perspiciatis eius incidunt
+                                    consectetur nulla autem numquam ullam officia cumque adipisci perspiciatis eius
+                                    incidunt
                                     diassumenda corporis unde iste
-                                    saepe, quis sequi rerum dignissimos, fugiat, praesentium aut. Accusamus aut illo, tempore
+                                    saepe, quis sequi rerum dignissimos, fugiat, praesentium aut. Accusamus aut illo,
+                                    tempore
                                     alias
-                                    nesciunt necessitatibus voluptatibus distinctio, ad provident incidunt temporibus in eum
+                                    nesciunt necessitatibus voluptatibus distinctio, ad provident incidunt temporibus in
+                                    eum
                                     ipsum,
-                                    dolore rerum. Et voluptatum perferendis molestiae! Illum maxime quia dolore distinctio nam
-                                    possimus aperiam labore, facere quas, aliquam neque, dolor quaerat nobis doloremque quis
+                                    dolore rerum. Et voluptatum perferendis molestiae! Illum maxime quia dolore
+                                    distinctio nam
+                                    possimus aperiam labore, facere quas, aliquam neque, dolor quaerat nobis doloremque
+                                    quis
                                     porro
-                                    est repellat consequatur dolores expedita aut sint minus. Quidem optio sunt voluptate, quas
-                                    alias debitis ipsam recusandae, quo laboriosam reprehenderit ullam minima perferendis
+                                    est repellat consequatur dolores expedita aut sint minus. Quidem optio sunt
+                                    voluptate, quas
+                                    alias debitis ipsam recusandae, quo laboriosam reprehenderit ullam minima
+                                    perferendis
                                     assumenda
-                                    cupiditate maxime nobis vel dignissimos autem porro! Optio repellat magni, esse corporis
+                                    cupiditate maxime nobis vel dignissimos autem porro! Optio repellat magni, esse
+                                    corporis
                                     dolorem
-                                    cupiditate ex suscipit asperiores laborum, voluptates eos veniam iste quos fugiat debitis?
-                                    Laborum officia cupiditate sed saepe, molestias nulla, fugit corrupti quidem a ad tempora
+                                    cupiditate ex suscipit asperiores laborum, voluptates eos veniam iste quos fugiat
+                                    debitis?
+                                    Laborum officia cupiditate sed saepe, molestias nulla, fugit corrupti quidem a ad
+                                    tempora
                                     sequi
-                                    incidunt eum cumque, nisi numquam autem eos commodi laboriosam. Dolor quam iusto cumque
+                                    incidunt eum cumque, nisi numquam autem eos commodi laboriosam. Dolor quam iusto
+                                    cumque
                                     dicta?
-                                    Ut nobis perspiciatis consectetur quae officiis dolore impedit iusto possimus molestias quos
+                                    Ut nobis perspiciatis consectetur quae officiis dolore impedit iusto possimus
+                                    molestias quos
                                     vero, repudiandae accusamus dignissimos earum! Perferendis exercitationem a et vero
                                     architecto
-                                    nemo, animi sunt! 
+                                    nemo, animi sunt!
                                 </p>
                             </div>
                         </div>
@@ -207,7 +259,8 @@
                 </div>
             </div>
             <div class="mt-10 pt-4">
-                <aside class="w-48 sticky top-10 text-white rounded-md shadow-lg shadow-blue-500 p-4 text-xl bg-blue-500">
+                <aside
+                    class="w-48 sticky top-10 text-white rounded-md shadow-lg shadow-gray-500 p-4 text-xl bg-gray-700">
                     <h1 class="font-semibold">Noticias</h1>
                     <nav class="flex flex-col">
                         <div class="flex m-1">
