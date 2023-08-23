@@ -16,5 +16,5 @@
     <div class="w-8 h-8 mr-2">
         <x-logo />
     </div>
-    <span class=" text-white text-2xl" style="text-shadow:0 2px 1px rgba(0,0,0);">Fácil Work</span>
+    <span class=" text-white text-2xl" style="text-shadow:0 4px 2px rgb(1, 250, 84);">Fácil Work</span>
 </div>

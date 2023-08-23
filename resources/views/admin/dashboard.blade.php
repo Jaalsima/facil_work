@@ -1,99 +1,4 @@
-{{-- <x-app-layout>
-    <div class="container mx-auto">
-        <div class="flex justify-center">
-            <div class="w-full max-w-md">
-                <div class="bg-white shadow-md rounded-lg px-8 py-6">
-                    <div class="text-xl font-bold mb-6">Panel de Control del Cliente</div>
-
-                    <div class="mb-4">
-                        <p>Bienvenido, {{ Auth::user()->name }}!</p>
-                    </div>
-
-                    <div class="mb-4">
-                        <h4 class="text-xl font-bold mb-2">Mis Solicitudes de Trabajo</h4>
-                        <table class="w-full border-collapse">
-                            <thead>
-                                <tr>
-                                    <th class="border border-gray-400 px-4 py-2">Número de Solicitud</th>
-                                    <th class="border border-gray-400 px-4 py-2">Fecha de Creación</th>
-                                    <th class="border border-gray-400 px-4 py-2">Estado</th>
-                                    <th class="border border-gray-400 px-4 py-2">Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($jobRequests as $jobRequest)
-                                    <tr>
-                                        <td class="border border-gray-400 px-4 py-2">{{ $jobRequest->id }}</td>
-                                        <td class="border border-gray-400 px-4 py-2">{{ $jobRequest->created_at }}</td>
-                                        <td class="border border-gray-400 px-4 py-2">{{ $jobRequest->status }}</td>
-                                        <td class="border border-gray-400 px-4 py-2">
-                                            <a href="{{ route('job_requests.show', $jobRequest->id) }}"
-                                                class="text-blue-500 hover:text-blue-700">Ver Detalles</a>
-                                            @if ($jobRequest->status === 'pending')
-                                                <a href="{{ route('job_requests.edit', $jobRequest->id) }}"
-                                                    class="text-blue-500 hover:text-blue-700 ml-4">Editar</a>
-                                            @endif
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <div>
-                        <h4 class="text-xl font-bold mb-2">Mis Cotizaciones Recibidas</h4>
-                        <table class="w-full border-collapse">
-                            <thead>
-                                <tr>
-                                    <th class="border border-gray-400 px-4 py-2">Número de Cotización</th>
-                                    <th class="border border-gray-400 px-4 py-2">Fecha de Creación</th>
-                                    <th class="border border-gray-400 px-4 py-2">Estado</th>
-                                    <th class="border border-gray-400 px-4 py-2">Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($quotations as $quotation)
-                                    <tr>
-                                        <td class="border border-gray-400 px-4 py-2">{{ $quotation->id }}</td>
-                                        <td class="border border-gray-400 px-4 py-2">{{ $quotation->created_at }}</td>
-                                        <td class="border border-gray-400 px-4 py-2">{{ $quotation->status }}</td>
-                                        <td class="border border-gray-400 px-4 py-2">
-                                            <a href="{{ route('quotation.show', $quotation->id) }}"
-                                                class="text-blue-500 hover:text-blue-700">Ver Detalles</a>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</x-app-layout>
- --}}
-
-
-
-<!-- component -->
-<!-- full tailwind config using javascript -->
-<!-- https://github.com/neurolinker/popice -->
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @livewireStyles()
-
-</head>
-
-<body class="body bg-white dark:bg-[#0F172A]">
+<x-app-layout>
     <div class="fixed w-full z-30 flex bg-white dark:bg-[#0F172A] p-2 items-center justify-center h-16 px-10">
         <div
             class="logo ml-12 dark:text-white  transform ease-in-out duration-500 flex-none h-full flex items-center justify-center">
@@ -414,7 +319,99 @@
 
         }
     </script>
-    @livewireScripts()
-</body>
+</x-app-layout>
 
-</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{-- <x-app-layout>
+    <div class="container mx-auto">
+        <div class="flex justify-center">
+            <div class="w-full max-w-md">
+                <div class="bg-white shadow-md rounded-lg px-8 py-6">
+                    <div class="text-xl font-bold mb-6">Panel de Control del Cliente</div>
+
+                    <div class="mb-4">
+                        <p>Bienvenido, {{ Auth::user()->name }}!</p>
+                    </div>
+
+                    <div class="mb-4">
+                        <h4 class="text-xl font-bold mb-2">Mis Solicitudes de Trabajo</h4>
+                        <table class="w-full border-collapse">
+                            <thead>
+                                <tr>
+                                    <th class="border border-gray-400 px-4 py-2">Número de Solicitud</th>
+                                    <th class="border border-gray-400 px-4 py-2">Fecha de Creación</th>
+                                    <th class="border border-gray-400 px-4 py-2">Estado</th>
+                                    <th class="border border-gray-400 px-4 py-2">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($jobRequests as $jobRequest)
+                                    <tr>
+                                        <td class="border border-gray-400 px-4 py-2">{{ $jobRequest->id }}</td>
+                                        <td class="border border-gray-400 px-4 py-2">{{ $jobRequest->created_at }}</td>
+                                        <td class="border border-gray-400 px-4 py-2">{{ $jobRequest->status }}</td>
+                                        <td class="border border-gray-400 px-4 py-2">
+                                            <a href="{{ route('job_requests.show', $jobRequest->id) }}"
+                                                class="text-blue-500 hover:text-blue-700">Ver Detalles</a>
+                                            @if ($jobRequest->status === 'pending')
+                                                <a href="{{ route('job_requests.edit', $jobRequest->id) }}"
+                                                    class="text-blue-500 hover:text-blue-700 ml-4">Editar</a>
+                                            @endif
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div>
+                        <h4 class="text-xl font-bold mb-2">Mis Cotizaciones Recibidas</h4>
+                        <table class="w-full border-collapse">
+                            <thead>
+                                <tr>
+                                    <th class="border border-gray-400 px-4 py-2">Número de Cotización</th>
+                                    <th class="border border-gray-400 px-4 py-2">Fecha de Creación</th>
+                                    <th class="border border-gray-400 px-4 py-2">Estado</th>
+                                    <th class="border border-gray-400 px-4 py-2">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($quotations as $quotation)
+                                    <tr>
+                                        <td class="border border-gray-400 px-4 py-2">{{ $quotation->id }}</td>
+                                        <td class="border border-gray-400 px-4 py-2">{{ $quotation->created_at }}</td>
+                                        <td class="border border-gray-400 px-4 py-2">{{ $quotation->status }}</td>
+                                        <td class="border border-gray-400 px-4 py-2">
+                                            <a href="{{ route('quotation.show', $quotation->id) }}"
+                                                class="text-blue-500 hover:text-blue-700">Ver Detalles</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</x-app-layout>
+ --}}
+
+
+
+<!-- component -->
+<!-- full tailwind config using javascript -->
+<!-- https://github.com/neurolinker/popice -->

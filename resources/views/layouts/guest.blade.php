@@ -20,7 +20,7 @@
 
 
 <body>
-    <div class="bg-gray-500 font-sans text-gray-900 dark:text-gray-100 antialiased">
+    <div class="min-h-screen font-sans antialiased text-gray-900 bg-gray-700 dark:text-gray-100">
         {{ $slot }}
     </div>
 

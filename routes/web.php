@@ -29,7 +29,6 @@ Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
 Route::get('/services', [HomeController::class, 'services'])->name('services');
-Route::get('/services', [HomeController::class, 'services'])->name('services');
 Route::get('/policy', [HomeController::class, 'policy'])->name('policy');
 Route::get('/terms', [HomeController::class, 'terms'])->name('terms');
 
