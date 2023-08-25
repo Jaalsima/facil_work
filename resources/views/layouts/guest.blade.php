@@ -20,7 +20,8 @@
 
 
 <body>
-    <div class="min-h-screen font-sans antialiased text-gray-900 bg-gray-700 dark:text-gray-100">
+    <livewire:navbar />
+    <div class="font-sans antialiased text-gray-900 bg-[#303B4D] dark:text-gray-100">
         {{ $slot }}
     </div>
 

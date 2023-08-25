@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\DonovanController;
 use App\Http\Controllers\JobRequestController;
 use App\Http\Controllers\JobReviewController;
 use App\Http\Controllers\MessageController;
@@ -24,7 +25,15 @@ use App\Http\Controllers\AdminPanelController;
 */
 
 // Rutas públicas (sin autenticación requerida)
-Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::get('/', [DonovanController::class, 'home'])->name('home');
+Route::get('/request', [DonovanController::class, 'request'])->name('request');
+Route::get('/request2', [DonovanController::class, 'request2'])->name('request2');
+
+
+
+
+// Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/blog', [HomeController::class, 'blog'])->name('blog');

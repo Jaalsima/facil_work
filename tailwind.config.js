@@ -14,7 +14,8 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: ['Inter', 'Figtree', ...defaultTheme.fontFamily.sans],
+                mono: ['Victor Mono', 'monospace'],
             },
             backgroundImage: {
                 'before': "url('public/images/before.svg')",
