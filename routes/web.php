@@ -1,5 +1,6 @@
 <?php
 
+use Laravel\Fortify\Fortify;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DonovanController;
 use App\Http\Controllers\JobRequestController;
@@ -24,14 +25,14 @@ use App\Http\Controllers\AdminPanelController;
 |
 */
 
+Fortify::loginView(function () {
+    return view('auth.login');
+});
+
 // Rutas públicas (sin autenticación requerida)
 
 Route::get('/', [DonovanController::class, 'home'])->name('home');
 Route::get('/request', [DonovanController::class, 'request'])->name('request');
-Route::get('/request2', [DonovanController::class, 'request2'])->name('request2');
-
-
-
 
 // Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
@@ -47,6 +48,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::get('/request2', [DonovanController::class, 'request2'])->name('request2');
+    Route::get('/request3', [DonovanController::class, 'request3'])->name('request3');
+    Route::get('/request4', [DonovanController::class, 'request4'])->name('request4');
+    Route::get('/request5', [DonovanController::class, 'request5'])->name('request5');
+
 
     // Rutas para solicitudes de trabajo
     Route::resource('job_requests', JobRequestController::class);

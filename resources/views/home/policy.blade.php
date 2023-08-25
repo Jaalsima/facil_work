@@ -1,17 +1,14 @@
 <x-guest-layout>
-    <div>
-        <livewire:navbar />
-    </div>
-    <div class="pt-4 bg-gray-100 dark:bg-gray-900">
-        <div class="min-h-screen flex flex-col items-center pt-6 sm:pt-0">
+
+    <div class="pt-4 dark:bg-gray-900">
+        <div class="flex flex-col items-center min-h-screen pt-6 sm:pt-0">
             <div>
                 <x-authentication-card-logo />
             </div>
 
-            <div
-                class="w-full sm:max-w-2xl mt-6 p-6 bg-white dark:bg-gray-800 shadow-md overflow-hidden sm:rounded-lg prose dark:prose-invert">
+            <div class="w-full p-6 mt-6 overflow-hidden prose text-center bg-white shadow-md sm:max-w-2xl sm:rounded-lg">
                 {{-- {!! $policy !!} --}}
-                <h1>Política de privacidad</h1>
+                <h1>Políticas de privacidad</h1>
             </div>
         </div>
     </div>

@@ -2,8 +2,11 @@
     <x-authentication-card>
         <x-slot name="logo">
             {{-- <x-authentication-card-logo /> --}}
-            <div class="w-[20vh]"><a href="{{ route('home') }}"><img src="{{ asset('images/sn-icons/facilwork.png') }}"
-                        alt=""></a></div>
+            <div class="w-[20vh]">
+                <a href="{{ route('home') }}">
+                    <img src="{{ asset('images/sn-icons/facilwork.png') }}" alt="">
+                </a>
+            </div>
         </x-slot>
 
         <x-validation-errors class="mb-4" />
@@ -37,7 +40,7 @@
                         {{ __('¿Olvidaste tu contraseña?') }}
                     </a>
                 @endif
-                <x-button class="ml-4">
+                <x-button class="ml-4 bg-gray-500">
                     {{ __('Ingresar') }}
                 </x-button>
             </div>
