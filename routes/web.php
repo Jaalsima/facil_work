@@ -58,6 +58,21 @@ Route::middleware(['auth'])->group(function () {
     // Rutas para solicitudes de trabajo
     Route::resource('job_requests', JobRequestController::class);
 
+    Route::get('job-requests/step1', [JobRequestController::class, 'step1'])->name('job-requests.step1');
+    Route::post('job-requests/step1', [JobRequestController::class, 'storeStep1']);
+
+    Route::get('job-requests/step2', [JobRequestController::class, 'step2'])->name('job-requests.step2');
+    Route::post('job-requests/step2', [JobRequestController::class, 'storeStep2']);
+
+    Route::get('job-requests/step3', [JobRequestController::class, 'step3'])->name('job-requests.step3');
+    Route::post('job-requests/step3', [JobRequestController::class, 'storeStep3']);
+
+    Route::get('job-requests/step4', [JobRequestController::class, 'step4'])->name('job-requests.step4');
+    Route::post('job-requests/step4', [JobRequestController::class, 'storeStep4']);
+
+// Agrega rutas para otros pasos aquí
+
+
     // Rutas para reseñas de trabajos
     Route::get('/job_requests/{job_request}/review', [JobReviewController::class, 'create'])->name('job_reviews.create');
     Route::post('/job_requests/{job_request}/review', [JobReviewController::class, 'store'])->name('job_reviews.store');

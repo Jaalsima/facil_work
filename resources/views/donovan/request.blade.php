@@ -5,7 +5,7 @@
             <div class="flex flex-col justify-around w-2/5 gap-10 pl-10 mx-auto font-mono text-4xl font-semibold">
                 <h3>En qué te podemos <br>
                     ayudar?</h3>
-                <x-input class="text-2xl bg-gray-700 h-28 shadow-black" />
+                <x-input class="text-2xl bg-gray-700 h-28 shadow-black" name="job_request" />
                 <a href="{{ route('request2') }}"><i class="text-6xl fa-solid fa-angle-right"></i></a>
                 <select name="category" id="category"
                     class="text-xl py-4 rounded-lg bg-[#303B4D] ring-0 focus:ring-0 focus:border-gray-900 shadow-lg shadow-black">
