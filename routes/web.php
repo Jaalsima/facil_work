@@ -1,113 +1,42 @@
 <?php
 
-use Laravel\Fortify\Fortify;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\DonovanController;
-use App\Http\Controllers\JobRequestController;
-use App\Http\Controllers\JobReviewController;
-use App\Http\Controllers\MessageController;
-use App\Http\Controllers\PaymentController;
-use App\Http\Controllers\QuotationController;
-use App\Http\Controllers\SkillController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\VisitController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminPanelController;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
-Fortify::loginView(function () {
-    return view('auth.login');
-});
+use App\Http\Livewire\Categories\Categories;
+use App\Http\Livewire\JobRequests\Step1;
+use App\Http\Livewire\JobRequests\Step2;
+use App\Http\Livewire\JobRequests\Step3;
+use App\Http\Livewire\JobRequests\Step4;
+use App\Http\Livewire\JobRequests\Step5;
+use App\Http\Livewire\JobRequests\Step6;
+use App\Http\Controllers\HomeController;
 
 // Rutas públicas (sin autenticación requerida)
 
-Route::get('/', [DonovanController::class, 'home'])->name('home');
-Route::get('/request', [DonovanController::class, 'request'])->name('request');
-
-// Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/about', [HomeController::class, 'about'])->name('about');
-Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
-Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
+Route::get('/',         [HomeController::class, 'home'])->name('home');
+Route::get('/about',    [HomeController::class, 'about'])->name('about');
+Route::get('/contact',  [HomeController::class, 'contact'])->name('contact');
+Route::get('/blog',     [HomeController::class, 'blog'])->name('blog');
 Route::get('/services', [HomeController::class, 'services'])->name('services');
-Route::get('/policy', [HomeController::class, 'policy'])->name('policy');
-Route::get('/terms', [HomeController::class, 'terms'])->name('terms');
+Route::get('/policy',   [HomeController::class, 'policy'])->name('policy');
+Route::get('/terms',    [HomeController::class, 'terms'])->name('terms');
+
+//Rutas para solicitudes de trabajo. Estas rutas permiten la visualización de las vistas que capturan de la necesidad del usuario
+
+Route::get('job-requests/step1', Step1::class)->name('job-requests.step1');
+Route::get('job-requests/step2', Step2::class)->name('job-requests.step2');
+Route::get('job-requests/step3', Step3::class)->name('job-requests.step3');
+Route::get('job-requests/step4', Step4::class)->name('job-requests.step4');
+Route::get('job-requests/step5', Step5::class)->name('job-requests.step5');
+Route::get('job-requests/step6', Step6::class)->name('job-requests.step6');
+
+
+
 
 // Rutas para usuarios autenticados
 Route::middleware(['auth'])->group(function () {
     // Rutas para el dashboard
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        return view('home.home');
     })->name('dashboard');
 
-    Route::get('/request2', [DonovanController::class, 'request2'])->name('request2');
-    Route::get('/request3', [DonovanController::class, 'request3'])->name('request3');
-    Route::get('/request4', [DonovanController::class, 'request4'])->name('request4');
-    Route::get('/request5', [DonovanController::class, 'request5'])->name('request5');
-
-
-    // Rutas para solicitudes de trabajo
-    Route::resource('job_requests', JobRequestController::class);
-
-    Route::get('job-requests/step1', [JobRequestController::class, 'step1'])->name('job-requests.step1');
-    Route::post('job-requests/step1', [JobRequestController::class, 'storeStep1']);
-
-    Route::get('job-requests/step2', [JobRequestController::class, 'step2'])->name('job-requests.step2');
-    Route::post('job-requests/step2', [JobRequestController::class, 'storeStep2']);
-
-    Route::get('job-requests/step3', [JobRequestController::class, 'step3'])->name('job-requests.step3');
-    Route::post('job-requests/step3', [JobRequestController::class, 'storeStep3']);
-
-    Route::get('job-requests/step4', [JobRequestController::class, 'step4'])->name('job-requests.step4');
-    Route::post('job-requests/step4', [JobRequestController::class, 'storeStep4']);
-
-// Agrega rutas para otros pasos aquí
-
-
-    // Rutas para reseñas de trabajos
-    Route::get('/job_requests/{job_request}/review', [JobReviewController::class, 'create'])->name('job_reviews.create');
-    Route::post('/job_requests/{job_request}/review', [JobReviewController::class, 'store'])->name('job_reviews.store');
-
-    // Rutas para mensajes
-    Route::get('/job_requests/{job_request}/message', [MessageController::class, 'create'])->name('messages.create');
-    Route::post('/job_requests/{job_request}/message', [MessageController::class, 'store'])->name('messages.store');
-    Route::get('/messages/{message}', [MessageController::class, 'show'])->name('messages.show');
-    Route::get('/messages/{message}/read', [MessageController::class, 'markAsRead'])->name('messages.markAsRead');
-
-    // Rutas para pagos
-    Route::get('/job_requests/{job_request}/payment', [PaymentController::class, 'create'])->name('payments.create');
-    Route::post('/job_requests/{job_request}/payment', [PaymentController::class, 'store'])->name('payments.store');
-    Route::get('/payments/{payment}', [PaymentController::class, 'show'])->name('payments.show');
-    Route::get('/payments/{payment}/process', [PaymentController::class, 'processPayment'])->name('payments.processPayment');
-    Route::get('/payments/{payment}/confirm', [PaymentController::class, 'confirmPayment'])->name('payments.confirmPayment');
-
-    // Rutas para cotizaciones
-    Route::resource('quotations', QuotationController::class);
-
-    // Rutas para habilidades
-    Route::resource('skills', SkillController::class);
-
-    // Rutas para usuarios
-    Route::resource('users', UserController::class);
-
-    // Rutas para visitas
-    Route::get('/job_requests/{job_request}/visit', [VisitController::class, 'create'])->name('visits.create');
-    Route::post('/job_requests/{job_request}/visit', [VisitController::class, 'store'])->name('visits.store');
-    Route::get('/visits/{visit}', [VisitController::class, 'show'])->name('visits.show');
-    Route::get('/visits/{visit}/confirm', [VisitController::class, 'confirmVisit'])->name('visits.confirmVisit');
-    Route::get('/visits/{visit}/complete', [VisitController::class, 'completeVisit'])->name('visits.completeVisit');
-
-
-    Route::middleware(['auth'])->group(function () {
-        Route::get('/admin/dashboard', [AdminPanelController::class, 'index'])->name('admin.dashboard');
-    });
 });

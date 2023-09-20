@@ -1,20 +1,20 @@
-@if (Auth::user()->name)
+<div>
     <x-guest-layout>
         <div class="flex w-full h-[93.8vh] font-sans font-semibold text-center text-gray-100">
             <div class="flex flex-col items-end justify-center w-3/5">
 
                 <div class="flex flex-col justify-around w-2/5 gap-10 pl-10 mx-auto font-semibold">
                     <h3 class="font-mono text-4xl">Ayúdanos a aclarar tu necesidad</h3>
-                    <p class="font-sans text-3xl">Selecciona una locación</p>
+                    <p class="font-sans text-3xl">Selecciona una lugar</p>
                     <div class="flex justify-center gap-10">
                         <x-button class="w-28 h-28 shadow-black">
-                            <i class="mx-auto text-6xl text-center fa-solid fa-house"></i>
+                            <i class="mx-auto text-6xl text-center fa-solid fa-kitchen-set"></i>
                         </x-button>
                         <x-button class="w-28 h-28 shadow-black">
-                            <i class="mx-auto text-6xl fa-solid fa-building"></i>
+                            <i class="mx-auto text-6xl fa-solid fa-bath"></i>
                         </x-button>
                     </div>
-                    <a href="{{ route('request3') }}"><i class="text-6xl fa-solid fa-angle-right"></i></a>
+                    <a href="{{ route('job-requests.step4') }}"><i class="text-6xl fa-solid fa-angle-right"></i></a>
                 </div>
             </div>
 
@@ -25,5 +25,4 @@
             </div>
         </div>
     </x-guest-layout>
-@else
-@endif
+</div>

@@ -7,7 +7,7 @@ use Illuminate\View\View;
 
 class HomeController extends Controller
 {
-    public function index(): View
+    public function home(): View
     {
         return view('home.home');
     }
