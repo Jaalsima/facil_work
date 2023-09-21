@@ -6,21 +6,16 @@ use Livewire\Component;
 
 class JobRequests extends Component
 {
-
-    public $tempData = [];
+    public $step = 1;
+    public $jobRequest;
 
     public function render()
     {
         return view('livewire.job-requests.job-requests');
     }
 
-    public function saveTemporalData($field, $value)
+    public function after()
     {
-        $this->tempData[$field] = $value;
-    }
-
-    public function nextStep($step)
-    {
-        $this->emit('nextStep', $step);
+        $this->step++;
     }
 }

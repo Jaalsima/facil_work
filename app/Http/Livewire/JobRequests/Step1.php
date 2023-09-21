@@ -13,9 +13,9 @@ class Step1 extends Component
         return view('livewire.job-requests.step1');
     }
 
-    public function saveTemporalData()
-    {
-        $this->emitUp('saveTemporalData', 'jobRequest', $this->jobRequest);
-        $this->emitUp('nextStep', 2);
-    }
+    // public function saveTemporalData()
+    // {
+    //     $this->emitUp('saveTemporalData', 'jobRequest', $this->jobRequest);
+    //     $this->emitUp('nextStep', 2);
+    // }
 }

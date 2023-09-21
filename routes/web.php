@@ -9,6 +9,8 @@ use App\Http\Livewire\JobRequests\Step3;
 use App\Http\Livewire\JobRequests\Step4;
 use App\Http\Livewire\JobRequests\Step5;
 use App\Http\Livewire\JobRequests\Step6;
+use App\Http\Livewire\JobRequests\Steps;
+
 use App\Http\Controllers\HomeController;
 use App\Models\JobRequest;
 use App\Http\Livewire\UserForm1;
@@ -34,6 +36,8 @@ Route::get('job-requests/step3',  Step3::class)->name('step3');
 Route::get('job-requests/step4',  Step4::class)->name('step4');
 Route::get('job-requests/step5',  Step5::class)->name('step5');
 Route::get('job-requests/step6',  Step6::class)->name('step6');
+Route::get('job-requests/steps',  Steps::class)->name('steps');
+
 
 
 Route::get('/user-form-1', UserForm1::class)->name('user-form-1');
