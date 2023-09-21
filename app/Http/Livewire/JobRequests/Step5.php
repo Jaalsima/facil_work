@@ -6,7 +6,8 @@ use Livewire\Component;
 
 class Step5 extends Component
 {
-    public function render()
+public $image;
+public function render()
     {
         return view('livewire.job-requests.step5');
     }
