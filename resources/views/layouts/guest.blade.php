@@ -26,30 +26,6 @@
     </div>
 
     @livewireScripts()
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const categorySelect = document.getElementById('category');
-            const subOptions = document.querySelectorAll('.sub-option');
-
-            // Evento cuando se cambia la categoría seleccionada
-            categorySelect.addEventListener('change', function() {
-                const selectedCategoryId = categorySelect.value;
-
-                // Oculta todas las sub-opciones
-                subOptions.forEach(function(option) {
-                    option.style.display = 'none';
-                });
-
-                // Muestra las sub-opciones relacionadas con la categoría seleccionada
-                subOptions.forEach(function(option) {
-                    if (option.getAttribute('data-parent') === selectedCategoryId) {
-                        option.style.display = 'block';
-                    }
-                });
-            });
-        });
-    </script>
 </body>
 
 </html>

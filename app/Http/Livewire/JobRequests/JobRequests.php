@@ -8,16 +8,25 @@ class JobRequests extends Component
 {
     public $step = 1;
     public $jobRequest, $location, $place, $tools, $image, $date, $address;
-    public $data = [];
 
-    protected $listeners = ['data'];
+    protected $listeners = ['jobRequest2', 'location2', 'step'];
 
-    public function data($data)
+    public function mount()
     {
-        $this->data[] = $data;
-        foreach ($data as $data) {
-            $this->jobRequest = $data['JobRequest'];
-        }
+        $this->jobRequest2($this->jobRequest);
+    }
+
+    public function step($st)
+    {
+        $this->step = $this->step + $st;
+    }
+    public function jobRequest2($jr)
+    {
+        $this->jobRequest = $jr;
+    }
+    public function location2($lot)
+    {
+        $this->location = $lot;
     }
 
     public function render()
@@ -32,6 +41,7 @@ class JobRequests extends Component
     }
     public function next()
     {
-        $this->step++;
+        $this->emit('counter'.$this->step);
     }
+
 }
