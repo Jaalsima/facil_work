@@ -63,7 +63,6 @@ class JobRequests extends Component
     public function before()
     {
         $this->step--;
-
     }
     public function next()
     {

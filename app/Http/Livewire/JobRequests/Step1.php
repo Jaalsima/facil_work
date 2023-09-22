@@ -15,6 +15,7 @@ class Step1 extends Component
         $this->emit('step');
     }
 
+
     public function render()
     {
         return view('livewire.job-requests.step1');

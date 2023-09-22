@@ -71,15 +71,14 @@
             </div>
             <div class="flex flex-col w-2/5 pl-10 mt-4 font-sans text-2xl bg-gray-900">
                 @if ($step == 1)
-                    <a href="{{ route('blog') }}">Primeros Pasos</a>
-                    <h1>{{ $jobRequest }}</h1>
-                    <a href="{{ route('policy') }}">Políticas</a>
-                    <a href="{{ route('about') }}">Sobre Nosotros</a>
+                    <div class="flex flex-col justify-around h-full text-left">
+                        <a href="{{ route('blog') }}">Primeros Pasos</a>
+                        <a href="{{ route('policy') }}">Políticas</a>
+                        <a href="{{ route('about') }}">Sobre Nosotros</a>
+                    </div>
                 @elseif($step > 1)
                     <h3 class="mr-4 py-2 mt-10 text-3xl bg-[#336699] rounded-lg">Informe</h3>
                     <div class="mt-10 mr-4 text-left">
-                        <h3 class="text-center bg-[#336699] rounded-lg w-2/3 py-2 mx-auto">Descripción del trabajo</h3>
-
                         <div class="py-2 pl-3 mt-6 mb-4 bg-[#336699] rounded-lg">
                             <h1>solicitud de trabajo:</h1>
                             <h1 class="pl-10 text-xl">{{ $jobRequest }}</h1>
