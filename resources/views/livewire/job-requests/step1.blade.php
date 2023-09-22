@@ -1,5 +1,4 @@
 <div>
-    <h1>{{ $jobRequest }}</h1>
     <label>
         <p class="mb-24">En qué te podemos <br> ayudar?</p>
     </label>

@@ -12,7 +12,7 @@ class Step1 extends Component
     public function counter1()
     {
         $this->emit('jobRequest2', $this->jobRequest);
-        $this->emit('step', 1);
+        $this->emit('step');
     }
 
     public function render()
