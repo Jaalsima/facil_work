@@ -16,9 +16,13 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('skill_id');
-            $table->string('title');
-            $table->text('description');
+            $table->string('description');
             $table->string('location');
+            $table->string('place');
+            $table->string('tools')->nullable();;
+            $table->string('image')->nullable();
+            $table->string('date');
+            $table->string('address');
             $table->string('status')->default('pending');
             $table->timestamps();
 

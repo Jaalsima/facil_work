@@ -3,7 +3,7 @@
     <p class="mb-24 font-sans text-3xl">Selecciona un lugar</p>
 
     <div class="flex justify-around mb-12" x-data="{ selectedCheckbox: null }">
-        <div class="w-16 rounded-lg cursor-pointer hover:bg-[#336699]"
+        <div class="w-16 rounded-lg cursor-pointer hover:bg-gray-500 active:bg-[#336699]"
             :class="{ 'bg-[#336699]': selectedCheckbox === 'kitchen' }">
             <input type="checkbox" id="kitchen" wire:model="place" value="Cocina" class="hidden"
                 @click="selectedCheckbox = 'kitchen'" :checked="selectedCheckbox === 'kitchen'">
@@ -17,7 +17,7 @@
             </label>
         </div>
 
-        <div class="w-16 rounded-lg cursor-pointer hover:bg-[#336699]"
+        <div class="w-16 rounded-lg cursor-pointer hover:bg-gray-500 active:bg-[#336699]"
             :class="{ 'bg-[#336699]': selectedCheckbox === 'bathroom' }">
             <input type="checkbox" id="bathroom" wire:model="place" value="Baño" class="hidden"
                 @click="selectedCheckbox = 'bathroom'" :checked="selectedCheckbox === 'bathroom'">
@@ -31,7 +31,7 @@
             </label>
         </div>
 
-        <div class="w-16 rounded-lg cursor-pointer hover:bg-[#336699]"
+        <div class="w-16 rounded-lg cursor-pointer hover:bg-gray-500 active:bg-[#336699]"
             :class="{ 'bg-[#336699]': selectedCheckbox === 'garage' }">
             <input type="checkbox" id="garage" wire:model="place" value="Garaje" class="hidden"
                 @click="selectedCheckbox = 'garage'" :checked="selectedCheckbox === 'garage'">
@@ -45,18 +45,19 @@
             </label>
         </div>
 
-        <div class="w-16 rounded-lg cursor-pointer hover:bg-[#336699]"
+        <div class="w-16 rounded-lg cursor-pointer hover:bg-gray-500 active:bg-[#336699]"
             :class="{ 'bg-[#336699]': selectedCheckbox === 'other' }">
-            <input type="checkbox" id="other" wire:model="place" value="Otro" class="hidden"
+            <input type="checkbox" id="other" wire:model="place" value="Other" class="hidden"
                 @click="selectedCheckbox = 'other'" :checked="selectedCheckbox === 'other'">
             <label for="other" class="w-full h-full cursor-pointer">
                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" fill="#eeeeee" class="w-full m-2 mx-auto"
-                    viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                    viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
                     <path
-                        d="M80 160c0-35.3 28.7-64 64-64h32c35.3 0 64 28.7 64 64v3.6c0 21.8-11.1 42.1-29.4 53.8l-42.2 27.1c-25.2 16.2-40.4 44.1-40.4 74V320c0 17.7 14.3 32 32 32s32-14.3 32-32v-1.4c0-8.2 4.2-15.8 11-20.2l42.2-27.1c36.6-23.6 58.8-64.1 58.8-107.7V160c0-70.7-57.3-128-128-128H144C73.3 32 16 89.3 16 160c0 17.7 14.3 32 32 32s32-14.3 32-32zm80 320a40 40 0 1 0 0-80 40 40 0 1 0 0 80z" />
+                        d="M0 488V171.3c0-26.2 15.9-49.7 40.2-59.4L308.1 4.8c7.6-3.1 16.1-3.1 23.8 0L599.8 111.9c24.3 9.7 40.2 33.3 40.2 59.4V488c0 13.3-10.7 24-24 24H568c-13.3 0-24-10.7-24-24V224c0-17.7-14.3-32-32-32H128c-17.7 0-32 14.3-32 32V488c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24zm488 24l-336 0c-13.3 0-24-10.7-24-24V432H512l0 56c0 13.3-10.7 24-24 24zM128 400V336H512v64H128zm0-96V224H512l0 80H128z" />
                 </svg>
                 <p class="mx-2 mb-2 text-xs">Otro</p>
             </label>
         </div>
+
     </div>
 </div>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\JobRequests;
+namespace App\Http\Livewire\JobRequests\Create;
 
 use Livewire\Component;
 
@@ -17,6 +17,6 @@ protected $listeners = ['counter5'];
     }
 public function render()
     {
-        return view('livewire.job-requests.step5');
+        return view('livewire.job-requests.create.step5');
     }
 }

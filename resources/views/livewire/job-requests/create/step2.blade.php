@@ -3,7 +3,7 @@
     <p class="mb-24 font-sans text-3xl">Selecciona tipo de locación</p>
 
     <div class="flex justify-around mb-12" x-data="{ selectedCheckbox: null }">
-        <div class="w-16 rounded-lg cursor-pointer hover:bg-[#336699]"
+        <div class="w-16 rounded-lg cursor-pointer hover:bg-gray-500 active:bg-[#336699]"
             :class="{ 'bg-[#336699]': selectedCheckbox === 'house' }">
             <input type="checkbox" id="house" wire:model="location" value="Casa" class="hidden"
                 @click="selectedCheckbox = 'house'" :checked="selectedCheckbox === 'house'">
@@ -17,7 +17,7 @@
                 <p class="mx-2 mb-2 text-xs">Casa</p>
             </label>
         </div>
-        <div class="rounded-lg cursor-pointer hover:bg-[#336699]"
+        <div class="rounded-lg cursor-pointer hover:bg-gray-500 active:bg-[#336699]"
             :class="{ 'bg-[#336699]': selectedCheckbox === 'apartment' }">
             <input type="checkbox" id="department" wire:model="location" value="Apartamento" class="hidden"
                 @click="selectedCheckbox = 'apartment'" :checked="selectedCheckbox === 'apartment'">
@@ -30,7 +30,7 @@
                 <p class="mx-2 text-xs">Apartamento</p>
             </label>
         </div>
-        <div class="w-16 rounded-lg cursor-pointer hover:bg-[#336699]"
+        <div class="w-16 rounded-lg cursor-pointer hover:bg-gray-500 active:bg-[#336699]"
             :class="{ 'bg-[#336699]': selectedCheckbox === 'store' }">
             <input type="checkbox" id="store" wire:model="location" value="Negocio" class="hidden"
                 @click="selectedCheckbox = 'store'" :checked="selectedCheckbox === 'store'">
@@ -44,7 +44,7 @@
                 <p class="mx-2 text-xs">Negocio</p>
             </label>
         </div>
-        <div class="w-16 rounded-lg cursor-pointer hover:bg-[#336699]"
+        <div class="w-16 rounded-lg cursor-pointer hover:bg-gray-500 active:bg-[#336699]"
             :class="{ 'bg-[#336699]': selectedCheckbox === 'church' }">
             <input type="checkbox" id="church" wire:model="location" value="Iglesia" class="hidden"
                 @click="selectedCheckbox = 'church'" :checked="selectedCheckbox === 'church'">

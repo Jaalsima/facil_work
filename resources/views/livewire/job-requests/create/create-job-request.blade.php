@@ -5,24 +5,24 @@
                 <div class="flex flex-col justify-around w-3/5 mx-auto font-mono text-4xl font-semibold">
 
                     @if ($step == 1)
-                        <livewire:job-requests.step1 />
+                        <livewire:job-requests.create.step1 :description="$description" />
                     @elseif ($step == 2)
-                        <livewire:job-requests.step2 />
+                        <livewire:job-requests.create.step2 />
                     @elseif ($step == 3)
-                        <livewire:job-requests.step3 />
+                        <livewire:job-requests.create.step3 />
                     @elseif ($step == 4)
-                        <livewire:job-requests.step4 />
+                        <livewire:job-requests.create.step4 />
                     @elseif ($step == 5)
-                        <livewire:job-requests.step5 />
+                        <livewire:job-requests.create.step5 />
                     @elseif ($step == 6)
-                        <livewire:job-requests.step6 />
+                        <livewire:job-requests.create.step6 />
                     @elseif ($step == 7)
-                        <livewire:job-requests.step7 />
+                        <livewire:job-requests.create.step7 />
                     @endif
 
                     @if ($step == 1)
                         <div class="text-center">
-                            <button wire:click="next" class="text-2xl hover:bg-[#336699] rounded-lg py-2">
+                            <button wire:click="incrementStep" class="text-2xl hover:bg-[#336699] rounded-lg py-2">
                                 <div class="text-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80"
                                         fill="currentColor" class="w-full bi bi-chevron-right" viewBox="0 0 16 16">
@@ -34,7 +34,8 @@
                         </div>
                     @elseif($step > 7)
                         <div>
-                            <button wire:click="before" class="text-2xl font-bold hover:bg-[#336699] rounded-lg py-2">
+                            <button wire:click="decrementStep"
+                                class="text-2xl font-bold hover:bg-[#336699] rounded-lg py-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80"
                                     fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd" stroke="#eeeeee" stroke-width="2"
@@ -45,7 +46,7 @@
                     @else
                         <div class="flex justify-center">
                             <div>
-                                <button wire:click="before"
+                                <button wire:click="decrementStep"
                                     class="text-2xl font-bold hover:bg-[#336699] rounded-lg py-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80"
                                         fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
@@ -55,7 +56,8 @@
                                 </button>
                             </div>
                             <div class="text-center">
-                                <button wire:click="next" class="text-2xl hover:bg-[#336699] rounded-lg py-2">
+                                <button wire:click="incrementStep"
+                                    class="text-2xl hover:bg-[#336699] rounded-lg py-2 active:bg-red-500">
                                     <div class="text-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80"
                                             fill="currentColor" class="w-full bi bi-chevron-right" viewBox="0 0 16 16">
@@ -77,34 +79,34 @@
                         <a href="{{ route('about') }}">Sobre Nosotros</a>
                     </div>
                 @elseif($step > 1)
-                    <h3 class="mr-4 py-2 mt-10 text-3xl bg-[#336699] rounded-lg">Informe</h3>
+                    <h3 class="py-2 mt-10 mr-4 text-3xl rounded-lg">Informe</h3>
                     <div class="mt-10 mr-4 text-left">
-                        <div class="py-2 pl-3 mt-6 mb-4 bg-[#336699] rounded-lg">
-                            <h1>solicitud de trabajo:</h1>
-                            <h1 class="pl-10 text-xl">{{ $jobRequest }}</h1>
+                        <div class="py-2 pl-3 mt-6 mb-4 rounded-lg">
+                            <h1>Descripción de la solicitud:</h1>
+                            <h1 class="pl-10 text-xl">{{ $description }}</h1>
                         </div>
-                        <div class="py-2 pl-3 mb-4 bg-[#336699] rounded-lg">
-                            <h1>location:</h1>
+                        <div class="py-2 pl-3 mb-4 rounded-lg">
+                            <h1>Ubicación:</h1>
                             <h1 class="pl-10 text-xl">{{ $location }}</h1>
                         </div>
-                        <div class="py-2 pl-3 mb-4 bg-[#336699] rounded-lg">
-                            <h1>location:</h1>
+                        <div class="py-2 pl-3 mb-4 rounded-lg">
+                            <h1>Lugar:</h1>
                             <h1 class="pl-10 text-xl">{{ $place }}</h1>
                         </div>
-                        <div class="py-2 pl-3 mb-4 bg-[#336699] rounded-lg">
-                            <h1>location:</h1>
+                        <div class="py-2 pl-3 mb-4 rounded-lg">
+                            <h1>Herramientas:</h1>
                             <h1 class="pl-10 text-xl">{{ $tools }}</h1>
                         </div>
                         <div class="py-2 pl-3 mb-4 rounded-lg">
-                            <h1>location:</h1>
+                            <h1>Imagen:</h1>
                             <h1 class="pl-10 text-xl">{{ $image }}</h1>
                         </div>
                         <div class="py-2 pl-3 mb-4 rounded-lg">
-                            <h1>location:</h1>
+                            <h1>Fecha:</h1>
                             <h1 class="pl-10 text-xl">{{ $date }}</h1>
                         </div>
                         <div class="py-2 pl-3 mb-4 rounded-lg">
-                            <h1>location:</h1>
+                            <h1>Dirección:</h1>
                             <h1 class="pl-10 text-xl">{{ $address }}</h1>
                         </div>
                     </div>
