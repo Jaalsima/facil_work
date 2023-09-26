@@ -12,6 +12,8 @@ class CreateJobRequest extends Component
 
     public $description = '';
 
+    public $category;
+
     public $location;
 
     public $place;
@@ -47,9 +49,10 @@ class CreateJobRequest extends Component
         'confirmedUser',
     ];
 
-    public function updateDescription($description)
+    public function updateDescription($data)
     {
-        $this->description = $description;
+        $this->description = $data['description'];
+        $this->category = $data['category'];
     }
 
     public function updateLocation($location)

@@ -9,9 +9,13 @@ class Step1 extends Component
 {
     public $description = '';
 
-    public $category = null;
+    public $selectedCategory; // Variable para almacenar la categoría seleccionada
+
+    public $selectedSkill; // Variable para almacenar la habilidad seleccionada
 
     public $categories;
+
+    public $skills; // Habilidades relacionadas con la categoría seleccionada
 
     protected $listeners = [
         'currentStep1',
@@ -23,9 +27,23 @@ class Step1 extends Component
         $this->categories = Category::get();
     }
 
+    public function updatedSelectedCategory()
+    {
+        // Cuando cambia la categoría seleccionada, actualiza la lista de habilidades
+        if ($this->selectedCategory) {
+            $category = Category::find($this->selectedCategory);
+            $this->skills = $category->skills;
+        } else {
+            $this->skills = []; // Si no se selecciona una categoría, establece las habilidades en un array vacío
+        }
+    }
+
     public function currentStep1()
     {
-        $this->emit('updateDescription', $this->description);
+        $this->emit('updateDescription', [
+            'description' => $this->description,
+            'category' => $this->selectedCategory,
+        ]);
         $this->emit('incrementStep');
     }
 
