@@ -6,13 +6,22 @@ use Livewire\Component;
 
 class Step2 extends Component
 {
-    public $location = ''; // Propiedad para capturar la ubicación ingresada por el usuario
+    public $location = '';
 
-    public function updateLocation()
+    protected $listeners = [
+        'currentStep2',
+        'backStep2',
+    ];
+
+    public function currentStep2()
     {
-        // Emitir un evento para actualizar la ubicación en el componente padre
         $this->emit('updateLocation', $this->location);
-        $this->emit('incrementStep'); // Avanzar al siguiente paso en el componente padre
+        $this->emit('incrementStep');
+    }
+
+    public function backStep2()
+    {
+        $this->emit('decrementStep');
     }
 
     public function render()

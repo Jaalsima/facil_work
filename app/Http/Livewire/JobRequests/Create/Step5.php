@@ -6,16 +6,25 @@ use Livewire\Component;
 
 class Step5 extends Component
 {
-public $image;
+    public $image;
 
-protected $listeners = ['counter5'];
+    protected $listeners = [
+        'currentStep5',
+        'backStep5',
+    ];
 
-    public function counter5()
+    public function currentStep5()
     {
-        $this->emit('image2', $this->image);
-        $this->emit('step', 1);
+        $this->emit('updateImage', $this->image);
+        $this->emit('incrementStep');
     }
-public function render()
+
+    public function backStep5()
+    {
+        $this->emit('decrementStep');
+    }
+
+    public function render()
     {
         return view('livewire.job-requests.create.step5');
     }

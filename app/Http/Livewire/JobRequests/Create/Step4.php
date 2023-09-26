@@ -8,13 +8,23 @@ class Step4 extends Component
 {
     public $tools;
 
-    protected $listeners = ['counter4'];
+    protected $listeners = [
+        'currentStep4',
+        'backStep4',
+    ];
 
-    public function counter4()
+    public function currentStep4()
     {
-        $this->emit('tools2', $this->tools);
-        $this->emit('step', 1);
+        $this->emit('updateTools', $this->tools);
+        $this->emit('incrementStep');
     }
+
+    public function backStep4()
+    {
+        $this->emit('decrementStep'
+        );
+    }
+
     public function render()
     {
         return view('livewire.job-requests.create.step4');

@@ -7,22 +7,24 @@
                     @if ($step == 1)
                         <livewire:job-requests.create.step1 :description="$description" />
                     @elseif ($step == 2)
-                        <livewire:job-requests.create.step2 />
+                        <livewire:job-requests.create.step2 :location="$location" />
                     @elseif ($step == 3)
-                        <livewire:job-requests.create.step3 />
+                        <livewire:job-requests.create.step3 :place="$place" />
                     @elseif ($step == 4)
-                        <livewire:job-requests.create.step4 />
+                        <livewire:job-requests.create.step4 :tools="$tools" />
                     @elseif ($step == 5)
-                        <livewire:job-requests.create.step5 />
+                        <livewire:job-requests.create.step5 :image="$image" />
                     @elseif ($step == 6)
-                        <livewire:job-requests.create.step6 />
+                        <livewire:job-requests.create.step6 :date="$date" />
                     @elseif ($step == 7)
-                        <livewire:job-requests.create.step7 />
+                        <livewire:job-requests.create.step7 :address="$address" />
+                    @elseif ($step == 8)
+                        <livewire:job-requests.create.step8 />
                     @endif
 
                     @if ($step == 1)
                         <div class="text-center">
-                            <button wire:click="incrementStep" class="text-2xl hover:bg-[#336699] rounded-lg py-2">
+                            <button wire:click="nextStep" class="text-2xl hover:bg-[#336699] rounded-lg py-2">
                                 <div class="text-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80"
                                         fill="currentColor" class="w-full bi bi-chevron-right" viewBox="0 0 16 16">
@@ -33,20 +35,9 @@
                             </button>
                         </div>
                     @elseif($step > 7)
-                        <div>
-                            <button wire:click="decrementStep"
-                                class="text-2xl font-bold hover:bg-[#336699] rounded-lg py-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80"
-                                    fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" stroke="#eeeeee" stroke-width="2"
-                                        d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
-                                </svg>
-                            </button>
-                        </div>
-                    @else
                         <div class="flex justify-center">
                             <div>
-                                <button wire:click="decrementStep"
+                                <button wire:click="beforeStep"
                                     class="text-2xl font-bold hover:bg-[#336699] rounded-lg py-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80"
                                         fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
@@ -56,8 +47,33 @@
                                 </button>
                             </div>
                             <div class="text-center">
-                                <button wire:click="incrementStep"
-                                    class="text-2xl hover:bg-[#336699] rounded-lg py-2 active:bg-red-500">
+                                <button wire:click="nextStep"
+                                    class="text-2xl hover:bg-[#336699] rounded-lg py-2 active:bg-[#336699]">
+                                    <div class="text-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80"
+                                            fill="currentColor" class="w-full" viewBox="0 0 448 512">
+                                            <path fill-rule="evenodd" stroke="#eeeeee" stroke-width="1.3"
+                                                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                                        </svg>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    @else
+                        <div class="flex justify-center">
+                            <div>
+                                <button wire:click="beforeStep"
+                                    class="text-2xl font-bold hover:bg-[#336699] rounded-lg py-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80"
+                                        fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" stroke="#eeeeee" stroke-width="1.3"
+                                            d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="text-center">
+                                <button wire:click="nextStep"
+                                    class="text-2xl hover:bg-[#336699] rounded-lg py-2 active:bg-[#336699]">
                                     <div class="text-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80"
                                             fill="currentColor" class="w-full bi bi-chevron-right" viewBox="0 0 16 16">
@@ -84,6 +100,11 @@
                         <div class="py-2 pl-3 mt-6 mb-4 rounded-lg">
                             <h1>Descripción de la solicitud:</h1>
                             <h1 class="pl-10 text-xl">{{ $description }}</h1>
+                        </div>
+
+                        <div class="py-2 pl-3 mb-4 rounded-lg">
+                            <h1>Categoría:</h1>
+                            <h1 class="pl-10 text-xl">{{ $category }}</h1>
                         </div>
                         <div class="py-2 pl-3 mb-4 rounded-lg">
                             <h1>Ubicación:</h1>

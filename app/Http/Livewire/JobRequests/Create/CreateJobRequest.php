@@ -2,14 +2,27 @@
 
 namespace App\Http\Livewire\JobRequests\Create;
 
-use Livewire\Component;
 use App\Models\JobRequest as JobRequestModel;
+use Illuminate\Support\Facades\Auth;
+use Livewire\Component;
 
 class CreateJobRequest extends Component
 {
     public $step = 1;
-    public $description = "";
-    public $tempJobRequest, $location, $place, $tools, $image, $date, $address;
+
+    public $description = '';
+
+    public $location;
+
+    public $place;
+
+    public $tools;
+
+    public $image;
+
+    public $date;
+
+    public $address;
 
     protected $rules = [
         'description' => 'required',
@@ -28,13 +41,11 @@ class CreateJobRequest extends Component
         'updateImage',
         'updateDate',
         'updateAddress',
+        'incrementStep',
+        'decrementStep',
+        'submitJobRequest',
+        'confirmedUser',
     ];
-
-    public function __construct()
-    {
-        parent::__construct();
-        $this->tempJobRequest = [];
-    }
 
     public function updateDescription($description)
     {
@@ -83,28 +94,52 @@ class CreateJobRequest extends Component
 
     public function decrementStep()
     {
-        $this->step--;
+        if ($this->step > 1) {
+            $this->step--;
+        }
+
+    }
+
+    public function nextStep()
+    {
+        $this->emit('currentStep'.$this->step);
+    }
+
+    public function beforeStep()
+    {
+        $this->emit('backStep'.$this->step);
+    }
+
+    public function confirmedUser()
+    {
+        if (Auth::check()) {
+            $this->step++;
+        } else {
+
+            $this->emit('nonLogin', [
+                'description' => $this->description,
+                'location' => $this->location,
+                'place' => $this->place,
+                'tools' => $this->tools,
+                'image' => $this->image,
+                'date' => $this->date,
+                'address' => $this->address,
+            ]);
+
+            return redirect()->route('login');
+        }
+
     }
 
     public function submitJobRequest()
     {
         $this->validate();
 
-        $this->tempJobRequest = [
-            'job_request' => $this->description,
-            'location' => $this->location,
-            'place' => $this->place,
-            'tools' => $this->tools,
-            'image' => $this->image,
-            'date' => $this->date,
-            'address' => $this->address,
-        ];
-
         $jobRequest = new JobRequestModel([
             'user_id' => auth()->user()->id,
             'category_id' => 1, // Cambia esto para obtener la categoría real
             'skill_id' => 1, // Cambia esto para obtener la habilidad real
-            'job_request' => $this->description,
+            'description' => $this->description,
             'location' => $this->location,
             'place' => $this->place,
             'tools' => $this->tools,
@@ -114,6 +149,7 @@ class CreateJobRequest extends Component
         ]);
         $jobRequest->save();
 
-        return redirect()->route('confirmation'); 
+        return redirect()->route('create-job-request');
+
     }
 }

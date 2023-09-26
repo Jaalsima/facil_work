@@ -6,16 +6,25 @@ use Livewire\Component;
 
 class Step6 extends Component
 {
-public $date;
+    public $date;
 
-protected $listeners = ['counter6'];
+    protected $listeners = [
+        'currentStep6',
+        'backStep6',
+    ];
 
-    public function counter6()
+    public function currentStep6()
     {
-        $this->emit('date2', $this->date);
-        $this->emit('step', 1);
+        $this->emit('updateDate', $this->date);
+        $this->emit('incrementStep');
     }
-public function render()
+
+    public function backStep6()
+    {
+        $this->emit('decrementStep');
+    }
+
+    public function render()
     {
         return view('livewire.job-requests.create.step6');
     }

@@ -7,13 +7,23 @@ use Livewire\Component;
 class Step3 extends Component
 {
     public $place;
-    protected $listeners = ['counter3'];
 
-    public function counter3()
+    protected $listeners = [
+        'currentStep3',
+        'backStep3',
+    ];
+
+    public function currentStep3()
     {
-        $this->emit('place2', $this->place);
-        $this->emit('step', 1);
+        $this->emit('updatePlace', $this->place);
+        $this->emit('incrementStep');
     }
+
+    public function backStep3()
+    {
+        $this->emit('decrementStep');
+    }
+
     public function render()
     {
         return view('livewire.job-requests.create.step3');
