@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\JobRequests\Create;
 
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Step8 extends Component
@@ -9,31 +10,18 @@ class Step8 extends Component
     protected $listeners = [
         'currentStep8',
         'backStep8',
-        'nonLogin',
     ];
 
     public function currentStep8()
     {
-        $this->emit('submitJobRequest');
+        if (Auth::check()) {
+            $this->createJobRequest();
+        }
     }
 
     public function backStep8()
     {
         $this->emit('decrementStep');
-    }
-
-    public function nonLogin($foo)
-    {
-        $this->emit('jajs', [
-            'description' => $foo['description'],
-            'location' => $foo['location'],
-            'place' => $foo['place'],
-            'tools' => $foo['tools'],
-            'image' => $foo['image'],
-            'date' => $foo['date'],
-            'address' => $foo['address'],
-        ]);
-
     }
 
     public function render()

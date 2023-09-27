@@ -9,6 +9,10 @@ class Step1 extends Component
 {
     public $description = '';
 
+    public $descriptionEntered = false;
+
+    public $categoryEntered = false;
+
     public $selectedCategory; // Variable para almacenar la categoría seleccionada
 
     public $selectedSkill; // Variable para almacenar la habilidad seleccionada
@@ -40,15 +44,15 @@ class Step1 extends Component
 
     public function currentStep1()
     {
+        $this->descriptionEntered = ! empty($this->description);
+        $this->categoryEntered = ! empty($this->selectedCategory);
         $this->emit('updateDescription', [
             'description' => $this->description,
             'category' => $this->selectedCategory,
+            'skill' => $this->selectedSkill,
         ]);
-        $this->emit('incrementStep');
-    }
-
-    public function render()
-    {
-        return view('livewire.job-requests.create.step1');
+        if ($this->selectedSkill) {
+            $this->emit('incrementStep');
+        }
     }
 }

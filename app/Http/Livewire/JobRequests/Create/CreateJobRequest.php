@@ -2,7 +2,9 @@
 
 namespace App\Http\Livewire\JobRequests\Create;
 
+use App\Models\Category;
 use App\Models\JobRequest as JobRequestModel;
+use App\Models\Skill;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -13,6 +15,8 @@ class CreateJobRequest extends Component
     public $description = '';
 
     public $category;
+
+    public $skill;
 
     public $location;
 
@@ -25,6 +29,12 @@ class CreateJobRequest extends Component
     public $date;
 
     public $address;
+
+    public $skillName;
+
+    public $categoryName;
+
+    public $jobRequestData = [];
 
     protected $rules = [
         'description' => 'required',
@@ -52,7 +62,14 @@ class CreateJobRequest extends Component
     public function updateDescription($data)
     {
         $this->description = $data['description'];
+        $category = Category::find($data['category']);
         $this->category = $data['category'];
+        $this->categoryName = $category ? $category->name : '';
+
+        // Obtén el nombre de la habilidad seleccionada
+        $skill = Skill::find($data['skill']);
+        $this->skill = $data['skill'];
+        $this->skillName = $skill ? $skill->name : '';
     }
 
     public function updateLocation($location)
@@ -117,31 +134,35 @@ class CreateJobRequest extends Component
     {
         if (Auth::check()) {
             $this->step++;
+            $this->createJobRequest();
         } else {
-
-            $this->emit('nonLogin', [
+            // Almacena los datos en la sesión temporal
+            session(['job_request_data' => [
                 'description' => $this->description,
+                'category' => $this->category,
+                'skill' => $this->skill,
                 'location' => $this->location,
                 'place' => $this->place,
                 'tools' => $this->tools,
                 'image' => $this->image,
                 'date' => $this->date,
                 'address' => $this->address,
-            ]);
+            ]]);
 
             return redirect()->route('login');
         }
-
     }
 
-    public function submitJobRequest()
+    public function createJobRequest()
     {
+        // Valida los datos
         $this->validate();
 
+        // Crea el Job Request
         $jobRequest = new JobRequestModel([
             'user_id' => auth()->user()->id,
-            'category_id' => 1, // Cambia esto para obtener la categoría real
-            'skill_id' => 1, // Cambia esto para obtener la habilidad real
+            'category_id' => $this->category,
+            'skill_id' => $this->skill,
             'description' => $this->description,
             'location' => $this->location,
             'place' => $this->place,
@@ -152,7 +173,10 @@ class CreateJobRequest extends Component
         ]);
         $jobRequest->save();
 
-        return redirect()->route('create-job-request');
+        // Limpia los datos almacenados en $jobRequestData
+        $this->jobRequestData = [];
 
+        // Redirige a donde sea necesario después de crear el Job Request
+        return redirect()->route('create-job-request');
     }
 }

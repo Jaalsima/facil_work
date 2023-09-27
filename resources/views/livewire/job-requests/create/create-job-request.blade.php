@@ -104,8 +104,14 @@
 
                         <div class="py-2 pl-3 mb-4 rounded-lg">
                             <h1>Categoría:</h1>
-                            <h1 class="pl-10 text-xl">{{ $category }}</h1>
+                            <h1 class="pl-10 text-xl">{{ $categoryName }}</h1>
                         </div>
+
+                        <div class="py-2 pl-3 mb-4 rounded-lg">
+                            <h1>Habilidad:</h1>
+                            <h1 class="pl-10 text-xl">{{ $skillName }}</h1>
+                        </div>
+
                         <div class="py-2 pl-3 mb-4 rounded-lg">
                             <h1>Ubicación:</h1>
                             <h1 class="pl-10 text-xl">{{ $location }}</h1>
