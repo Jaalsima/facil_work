@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\JobRequests\Create;
+namespace App\Http\Livewire\JobRequests\CreateJobRequest;
 
 use Livewire\Component;
 
@@ -26,6 +26,6 @@ class Step3 extends Component
 
     public function render()
     {
-        return view('livewire.job-requests.create.step3');
+        return view('livewire.job-requests.create-job-request.step3');
     }
 }

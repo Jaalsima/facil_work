@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\JobRequests\Create;
+namespace App\Http\Livewire\JobRequests\CreateJobRequest;
 
 use App\Models\Category;
 use App\Models\JobRequest as JobRequestModel;
@@ -104,7 +104,7 @@ class CreateJobRequest extends Component
 
     public function render()
     {
-        return view('livewire.job-requests.create.create-job-request');
+        return view('livewire.job-requests.create-job-request.create-job-request');
     }
 
     public function incrementStep()
@@ -134,7 +134,6 @@ class CreateJobRequest extends Component
     {
         if (Auth::check()) {
             $this->step++;
-            $this->createJobRequest();
         } else {
             // Almacena los datos en la sesión temporal
             session(['job_request_data' => [
@@ -153,7 +152,7 @@ class CreateJobRequest extends Component
         }
     }
 
-    public function createJobRequest()
+    public function submitJobRequest()
     {
         // Valida los datos
         $this->validate();
@@ -176,7 +175,7 @@ class CreateJobRequest extends Component
         // Limpia los datos almacenados en $jobRequestData
         $this->jobRequestData = [];
 
-        // Redirige a donde sea necesario después de crear el Job Request
-        return redirect()->route('create-job-request');
+        $this->emit('renderJob');
+        $this->emit('alert', '¡Solicitud de Trabajo Creada Exitosamente!');
     }
 }

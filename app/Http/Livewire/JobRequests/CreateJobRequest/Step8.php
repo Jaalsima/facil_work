@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\JobRequests\Create;
+namespace App\Http\Livewire\JobRequests\CreateJobRequest;
 
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -15,7 +15,7 @@ class Step8 extends Component
     public function currentStep8()
     {
         if (Auth::check()) {
-            $this->createJobRequest();
+            $this->emit('submitJobRequest');
         }
     }
 
@@ -26,6 +26,6 @@ class Step8 extends Component
 
     public function render()
     {
-        return view('livewire.job-requests.create.step8');
+        return view('livewire.job-requests.create-job-request.step8');
     }
 }

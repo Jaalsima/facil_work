@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\JobRequests\Create;
+namespace App\Http\Livewire\JobRequests\CreateJobRequest;
 
 use App\Models\Category;
 use Livewire\Component;
@@ -54,5 +54,10 @@ class Step1 extends Component
         if ($this->selectedSkill) {
             $this->emit('incrementStep');
         }
+    }
+
+    public function render()
+    {
+        return view('livewire.job-requests.create-job-request.step1');
     }
 }

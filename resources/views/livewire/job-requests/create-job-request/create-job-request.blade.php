@@ -5,21 +5,21 @@
                 <div class="flex flex-col justify-around w-3/5 mx-auto font-mono text-4xl font-semibold">
 
                     @if ($step == 1)
-                        <livewire:job-requests.create.step1 :description="$description" />
+                        <livewire:job-requests.create-job-request.step1 :description="$description" />
                     @elseif ($step == 2)
-                        <livewire:job-requests.create.step2 :location="$location" />
+                        <livewire:job-requests.create-job-request.step2 :location="$location" />
                     @elseif ($step == 3)
-                        <livewire:job-requests.create.step3 :place="$place" />
+                        <livewire:job-requests.create-job-request.step3 :place="$place" />
                     @elseif ($step == 4)
-                        <livewire:job-requests.create.step4 :tools="$tools" />
+                        <livewire:job-requests.create-job-request.step4 :tools="$tools" />
                     @elseif ($step == 5)
-                        <livewire:job-requests.create.step5 :image="$image" />
+                        <livewire:job-requests.create-job-request.step5 :image="$image" />
                     @elseif ($step == 6)
-                        <livewire:job-requests.create.step6 :date="$date" />
+                        <livewire:job-requests.create-job-request.step6 :date="$date" />
                     @elseif ($step == 7)
-                        <livewire:job-requests.create.step7 :address="$address" />
+                        <livewire:job-requests.create-job-request.step7 :address="$address" />
                     @elseif ($step == 8)
-                        <livewire:job-requests.create.step8 />
+                        <livewire:job-requests.create-job-request.step8 />
                     @endif
 
                     @if ($step == 1)
