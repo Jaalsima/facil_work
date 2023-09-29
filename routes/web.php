@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
-use App\Http\Livewire\JobRequests\CreateJobRequest\CreateJobRequest;
+use App\Http\Livewire\JobRequests\CreateJobRequest\CreateForm;
 use App\Http\Livewire\JobRequests\ListJobRequest;
 use Illuminate\Support\Facades\Route;
 
@@ -18,7 +18,7 @@ Route::get('/terms', [HomeController::class, 'terms'])->name('terms');
 // Ruta para la creación de solicitudes de trabajo.
 // Esta ruta permite la visualización de las vistas que capturan de la necesidad del usuario.
 
-Route::get('job-requests/create-job-request/', CreateJobRequest::class)->name('create-job-request');
+Route::get('job-requests/create-job-request/', CreateForm::class)->name('create-job-request');
 
 // Rutas para usuarios autenticados
 Route::middleware(['auth'])->group(function () {

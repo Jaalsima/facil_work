@@ -16,6 +16,8 @@ class Step8 extends Component
     {
         if (Auth::check()) {
             $this->emit('submitJobRequest');
+        } else {
+            $this->emit('confirmedUser');
         }
     }
 

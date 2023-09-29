@@ -5,7 +5,7 @@
     <div class="flex justify-around mb-12" x-data="{ selectedCheckbox: null }">
         <div class="w-16 rounded-lg cursor-pointer hover:bg-gray-500 active:bg-[#336699]"
             :class="{ 'bg-[#336699]': selectedCheckbox === 'kitchen' }">
-            <input type="checkbox" id="kitchen" wire:model="place" value="Cocina" class="hidden"
+            <input type="checkbox" id="kitchen" wire:model="c3Place" value="Cocina" class="hidden"
                 @click="selectedCheckbox = 'kitchen'" :checked="selectedCheckbox === 'kitchen'">
             <label for="kitchen" class="w-full h-full cursor-pointer">
                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" fill="#eeeeee" class="w-full m-2 mx-auto"
@@ -19,7 +19,7 @@
 
         <div class="w-16 rounded-lg cursor-pointer hover:bg-gray-500 active:bg-[#336699]"
             :class="{ 'bg-[#336699]': selectedCheckbox === 'bathroom' }">
-            <input type="checkbox" id="bathroom" wire:model="place" value="Baño" class="hidden"
+            <input type="checkbox" id="bathroom" wire:model="c3Place" value="Baño" class="hidden"
                 @click="selectedCheckbox = 'bathroom'" :checked="selectedCheckbox === 'bathroom'">
             <label for="bathroom" class="w-full h-full cursor-pointer">
                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" fill="#eeeeee" class="w-full m-2 mx-auto"
@@ -33,7 +33,7 @@
 
         <div class="w-16 rounded-lg cursor-pointer hover:bg-gray-500 active:bg-[#336699]"
             :class="{ 'bg-[#336699]': selectedCheckbox === 'garage' }">
-            <input type="checkbox" id="garage" wire:model="place" value="Garaje" class="hidden"
+            <input type="checkbox" id="garage" wire:model="c3Place" value="Garaje" class="hidden"
                 @click="selectedCheckbox = 'garage'" :checked="selectedCheckbox === 'garage'">
             <label for="garage" class="w-full h-full cursor-pointer">
                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" fill="#eeeeee" class="w-full m-2 mx-auto"
@@ -47,7 +47,7 @@
 
         <div class="w-16 rounded-lg cursor-pointer hover:bg-gray-500 active:bg-[#336699]"
             :class="{ 'bg-[#336699]': selectedCheckbox === 'other' }">
-            <input type="checkbox" id="other" wire:model="place" value="Other" class="hidden"
+            <input type="checkbox" id="other" wire:model="c3Place" value="Other" class="hidden"
                 @click="selectedCheckbox = 'other'" :checked="selectedCheckbox === 'other'">
             <label for="other" class="w-full h-full cursor-pointer">
                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" fill="#eeeeee" class="w-full m-2 mx-auto"

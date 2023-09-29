@@ -6,7 +6,7 @@ use Livewire\Component;
 
 class Step6 extends Component
 {
-    public $date;
+    public $c6Date;
 
     protected $listeners = [
         'currentStep6',
@@ -15,7 +15,7 @@ class Step6 extends Component
 
     public function currentStep6()
     {
-        $this->emit('updateDate', $this->date);
+        $this->emit('updateDate', $this->c6Date);
         $this->emit('incrementStep');
     }
 

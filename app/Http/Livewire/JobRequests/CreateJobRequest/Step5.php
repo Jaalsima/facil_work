@@ -6,7 +6,7 @@ use Livewire\Component;
 
 class Step5 extends Component
 {
-    public $image;
+    public $c5Image;
 
     protected $listeners = [
         'currentStep5',
@@ -15,7 +15,7 @@ class Step5 extends Component
 
     public function currentStep5()
     {
-        $this->emit('updateImage', $this->image);
+        $this->emit('updateImage', $this->c5Image);
         $this->emit('incrementStep');
     }
 

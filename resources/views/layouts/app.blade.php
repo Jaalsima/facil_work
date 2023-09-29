@@ -24,7 +24,7 @@
     <x-banner />
 
     <div class="min-h-screen font-sans text-gray-900 bg-gray-700 dark:text-gray-100">
-        {{-- @livewire('navigation-menu') --}}
+        @livewire('navigation-menu')
 
         <!-- Page Heading -->
         @if (isset($header))
@@ -42,16 +42,6 @@
     </div>
 
     @stack('modals')
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.22/dist/sweetalert2.all.min.js"></script>
-    <script>
-        Livewire.on('alert', function(message) {
-            Swal.fire(
-                'Excelente!',
-                message,
-                'success'
-            );
-        });
-    </script>
 
     @livewireScripts
 </body>

@@ -6,7 +6,7 @@ use Livewire\Component;
 
 class Step7 extends Component
 {
-    public $address;
+    public $c7Address;
 
     protected $listeners = [
         'currentStep7',
@@ -15,8 +15,9 @@ class Step7 extends Component
 
     public function currentStep7()
     {
-        $this->emit('updateAddress', $this->address);
-        $this->emit('confirmedUser');
+        $this->emit('incrementStep');
+        $this->emit('updateAddress', $this->c7Address);
+
     }
 
     public function backStep7()

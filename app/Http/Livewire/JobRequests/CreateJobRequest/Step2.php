@@ -6,7 +6,7 @@ use Livewire\Component;
 
 class Step2 extends Component
 {
-    public $location = '';
+    public $c2Location = '';
 
     protected $listeners = [
         'currentStep2',
@@ -15,7 +15,7 @@ class Step2 extends Component
 
     public function currentStep2()
     {
-        $this->emit('updateLocation', $this->location);
+        $this->emit('updateLocation', $this->c2Location);
         $this->emit('incrementStep');
     }
 
