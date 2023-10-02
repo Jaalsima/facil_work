@@ -6,7 +6,7 @@
 
         <div class="w-16 rounded-lg cursor-pointer hover:bg-[#336699]"
             :class="{ 'bg-[#336699]': selectedCheckbox === 'yes' }">
-            <input type="checkbox" id="yes" wire:model="tools" value="Si" class="hidden"
+            <input type="checkbox" id="yes" wire:model="is_there_tools" value=true class="hidden"
                 @click="selectedCheckbox = 'yes'" :checked="selectedCheckbox === 'yes'">
             <label for="yes" class="w-full h-full cursor-pointer">
                 <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="#eeeeee"
@@ -21,7 +21,7 @@
 
         <div class="w-16 rounded-lg cursor-pointer hover:bg-[#336699]"
             :class="{ 'bg-[#336699]': selectedCheckbox === 'not' }">
-            <input type="checkbox" id="not" wire:model="tools" value="No" class="hidden"
+            <input type="checkbox" id="not" wire:model="is_there_tools" value=false class="hidden"
                 @click="selectedCheckbox = 'not'" :checked="selectedCheckbox === 'not'">
             <label for="not" class="w-full h-full cursor-pointer">
                 <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="#eeeeee"

@@ -4,46 +4,29 @@ namespace App\Http\Livewire\JobRequests\Create;
 
 use App\Models\Category;
 use App\Models\JobRequest as JobRequestModel;
+use App\Models\JobRequestImage;
 use App\Models\Skill;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class CreateJobRequest extends Component
 {
-    public $step = 1;
+    use WithFileUploads;
 
-    public $description = '';
-
-    public $category;
-
-    public $skill;
-
-    public $location;
-
-    public $place;
-
-    public $tools;
-
-    public $image;
-
-    public $date;
-
-    public $address;
-
-    public $skillName;
-
-    public $categoryName;
-
-    public $jobRequestData = [];
+    public $step = 1, $description = '', $images = [], $hasImage = false;
+    public $skill, $category, $location, $place, $hasTools, $date, $address, $skillName, $categoryName, $imagePath;
 
     protected $rules = [
-        'description' => 'required',
-        'location' => 'required',
-        'place' => 'required',
-        'tools' => 'required',
-        'date' => 'required',
-        'address' => 'required',
+        'description'    => 'required',
+        'location'       => 'required',
+        'place'          => 'required',
+        'has_tools'      => 'required',
+        'has_image'      => 'required',
+        'date'           => 'required',
+        'address'        => 'required',
     ];
+
 
     protected $listeners = [
         'updateDescription',
@@ -66,7 +49,6 @@ class CreateJobRequest extends Component
         $this->category = $data['category'];
         $this->categoryName = $category ? $category->name : '';
 
-        // Obtén el nombre de la habilidad seleccionada
         $skill = Skill::find($data['skill']);
         $this->skill = $data['skill'];
         $this->skillName = $skill ? $skill->name : '';
@@ -82,14 +64,19 @@ class CreateJobRequest extends Component
         $this->place = $place;
     }
 
-    public function updateTools($tools)
+    public function updateTools($hasTools)
     {
-        $this->tools = $tools;
+        $this->hasTools = $hasTools;
     }
 
-    public function updateImage($image)
+    public function updateImage($images)
     {
-        $this->image = $image;
+        $this->hasImage = $images['hasImage'];
+        if($this->hasImage){
+            $this->images = $images['images'];
+        }else{
+            $this->images = [];
+        }
     }
 
     public function updateDate($date)
@@ -117,17 +104,26 @@ class CreateJobRequest extends Component
         if ($this->step > 1) {
             $this->step--;
         }
-
     }
 
     public function nextStep()
     {
-        $this->emit('currentStep'.$this->step);
+        $this->emit('currentStep' . $this->step);
     }
 
     public function beforeStep()
     {
-        $this->emit('backStep'.$this->step);
+        $this->emit('backStep' . $this->step);
+    }
+
+    public function imageVerification(){
+        if ($this->hasImage && count($this->images) > 0) {
+            foreach ($this->images as $image) {
+                $this->imagePath = $image->store('job_request_images', 'public');
+            }
+        }else{
+            $this->images = [];
+        }
     }
 
     public function confirmedUser()
@@ -136,17 +132,18 @@ class CreateJobRequest extends Component
             $this->step++;
             $this->createJobRequest();
         } else {
-            // Almacena los datos en la sesión temporal
+
             session(['job_request_data' => [
                 'description' => $this->description,
-                'category' => $this->category,
-                'skill' => $this->skill,
-                'location' => $this->location,
-                'place' => $this->place,
-                'tools' => $this->tools,
-                'image' => $this->image,
-                'date' => $this->date,
-                'address' => $this->address,
+                'category'    => $this->category,
+                'skill'       => $this->skill,
+                'location'    => $this->location,
+                'place'       => $this->place,
+                'hasTools'    => $this->hasTools,
+                'hasImage'    => $this->hasImage,
+                'date'        => $this->date,
+                'address'     => $this->address,
+                'images'      => $this->images,
             ]]);
 
             return redirect()->route('login');
@@ -155,28 +152,33 @@ class CreateJobRequest extends Component
 
     public function createJobRequest()
     {
-        // Valida los datos
-        $this->validate();
+    $this->validate();
 
-        // Crea el Job Request
-        $jobRequest = new JobRequestModel([
-            'user_id' => auth()->user()->id,
-            'category_id' => $this->category,
-            'skill_id' => $this->skill,
-            'description' => $this->description,
-            'location' => $this->location,
-            'place' => $this->place,
-            'tools' => $this->tools,
-            'image' => $this->image,
-            'date' => $this->date,
-            'address' => $this->address,
+    // Crear la solicitud de trabajo
+    $jobRequest = new JobRequestModel([
+        'user_id'           => auth()->user()->id,
+        'category_id'       => $this->category,
+        'skill_id'          => $this->skill,
+        'description'       => $this->description,
+        'location'          => $this->location,
+        'place'             => $this->place,
+        'has_tools'         => $this->hasTools ? 'SÍ' : 'NO',
+        'has_image'         => $this->hasImage ? 'SÍ' : 'NO',
+        'date'              => $this->date,
+        'address'           => $this->address,
+        
+    ]);
+    
+    $jobRequest->save();
+        JobRequestImage::create([
+            'job_request_id' => $jobRequest->id,
+            'image_path' => $this->imagePath,
         ]);
-        $jobRequest->save();
+    
+    
 
-        // Limpia los datos almacenados en $jobRequestData
-        $this->jobRequestData = [];
+        session()->forget('job_request_data');
 
-        // Redirige a donde sea necesario después de crear el Job Request
         return redirect()->route('create-job-request');
     }
 }

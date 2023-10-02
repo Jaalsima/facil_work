@@ -51,4 +51,9 @@ class JobRequest extends Model
     {
         return $this->hasMany(Visit::class);
     }
+
+    public function images()
+    {
+        return $this->hasMany(JobRequestImage::class);
+    }
 }

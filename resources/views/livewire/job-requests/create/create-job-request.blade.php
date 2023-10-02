@@ -11,9 +11,9 @@
                     @elseif ($step == 3)
                         <livewire:job-requests.create.step3 :place="$place" />
                     @elseif ($step == 4)
-                        <livewire:job-requests.create.step4 :tools="$tools" />
+                        <livewire:job-requests.create.step4 :hasTools="$hasTools" />
                     @elseif ($step == 5)
-                        <livewire:job-requests.create.step5 :image="$image" />
+                        <livewire:job-requests.create.step5 :hasImage="$hasImage" :imagePath="$imagePath" />
                     @elseif ($step == 6)
                         <livewire:job-requests.create.step6 :date="$date" />
                     @elseif ($step == 7)
@@ -122,12 +122,28 @@
                         </div>
                         <div class="py-2 pl-3 mb-4 rounded-lg">
                             <h1>Herramientas:</h1>
-                            <h1 class="pl-10 text-xl">{{ $tools }}</h1>
+                            <h1 class="pl-10 text-xl">{{ $hasTools }}</h1>
                         </div>
+
                         <div class="py-2 pl-3 mb-4 rounded-lg">
-                            <h1>Imagen:</h1>
-                            <h1 class="pl-10 text-xl">{{ $image }}</h1>
+                            <h1>Imágenes:</h1>
+                            <h1 class="pl-10 text-xl">{{ $imagePath }}</h1>
                         </div>
+
+                        @if (count($images) > 0)
+                            <div class="py-2 pl-3 mb-4 rounded-lg">
+                                <h1>Imágenes:</h1>
+                                <ul class="pl-10 text-xl list-disc">
+                                    @foreach ($images as $image)
+                                        <li>
+                                            <img src="{{ $image->temporaryUrl() }}" alt="Image Preview"
+                                                class="w-32 h-32">
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
                         <div class="py-2 pl-3 mb-4 rounded-lg">
                             <h1>Fecha:</h1>
                             <h1 class="pl-10 text-xl">{{ $date }}</h1>

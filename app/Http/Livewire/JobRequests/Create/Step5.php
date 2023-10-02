@@ -3,10 +3,14 @@
 namespace App\Http\Livewire\JobRequests\Create;
 
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class Step5 extends Component
 {
-    public $image;
+    use WithFileUploads;
+
+    public $hasImage = false;
+    public $images = [];
 
     protected $listeners = [
         'currentStep5',
@@ -15,13 +19,21 @@ class Step5 extends Component
 
     public function currentStep5()
     {
-        $this->emit('updateImage', $this->image);
+        $this->emit('updateImage', ['hasImage' => $this->hasImage, 'images' => $this->images ]);
+
         $this->emit('incrementStep');
     }
 
     public function backStep5()
     {
         $this->emit('decrementStep');
+    }
+
+    public function updatedHasImage()
+    {
+        if (!$this->hasImage) {
+            $this->images = [];
+        }
     }
 
     public function render()
