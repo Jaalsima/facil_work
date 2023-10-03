@@ -15,7 +15,7 @@ class CreateJobRequest extends Component
     use WithFileUploads;
 
     public $step = 1, $description = '', $images = [], $hasImage = false;
-    public $skill, $category, $location, $place, $hasTools, $date, $address, $skillName, $categoryName, $imagePath;
+    public $jobRequest, $skill, $category, $location, $place, $hasTools, $date, $address, $skillName, $categoryName, $imagePath;
 
     protected $rules = [
         'description'    => 'required',
@@ -120,6 +120,10 @@ class CreateJobRequest extends Component
         if ($this->hasImage && count($this->images) > 0) {
             foreach ($this->images as $image) {
                 $this->imagePath = $image->store('job_request_images', 'public');
+                JobRequestImage::create([
+                    'job_request_id' => $this->jobRequest->id,
+                    'image_path' => $this->imagePath,
+                ]);
             }
         }else{
             $this->images = [];
@@ -170,10 +174,8 @@ class CreateJobRequest extends Component
     ]);
     
     $jobRequest->save();
-        JobRequestImage::create([
-            'job_request_id' => $jobRequest->id,
-            'image_path' => $this->imagePath,
-        ]);
+    $this->imageVerification();
+        
     
     
 
