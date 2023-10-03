@@ -6,7 +6,7 @@ use Livewire\Component;
 
 class Step4 extends Component
 {
-    public $is_there_tools;
+    public $tools;
 
     protected $listeners = [
         'currentStep4',
@@ -15,13 +15,14 @@ class Step4 extends Component
 
     public function currentStep4()
     {
-        $this->emit('updateTools', $this->is_there_tools);
+        $this->emit('updateTools', $this->tools);
         $this->emit('incrementStep');
     }
 
     public function backStep4()
     {
-        $this->emit('decrementStep'
+        $this->emit(
+            'decrementStep'
         );
     }
 

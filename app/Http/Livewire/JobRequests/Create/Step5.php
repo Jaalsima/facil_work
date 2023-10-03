@@ -1,5 +1,7 @@
 <?php
 
+// app/Http/Livewire/JobRequests/Create/Step5.php
+
 namespace App\Http\Livewire\JobRequests\Create;
 
 use Livewire\Component;
@@ -9,8 +11,8 @@ class Step5 extends Component
 {
     use WithFileUploads;
 
-    public $hasImage = false;
-    public $images = [];
+    public $image = "No";
+    public $imagePaths = [];
 
     protected $listeners = [
         'currentStep5',
@@ -19,8 +21,7 @@ class Step5 extends Component
 
     public function currentStep5()
     {
-        $this->emit('updateImage', ['hasImage' => $this->hasImage, 'images' => $this->images ]);
-
+        $this->emit('updateImage', $this->image);
         $this->emit('incrementStep');
     }
 
@@ -29,11 +30,16 @@ class Step5 extends Component
         $this->emit('decrementStep');
     }
 
-    public function updatedHasImage()
+    public function saveImages()
     {
-        if (!$this->hasImage) {
-            $this->images = [];
+        $paths = [];
+
+        foreach ($this->imagePaths as $image) {
+            $path = $image->store('job_request_images', 'public');
+            $paths[] = $path;
         }
+
+        $this->emit('updateImagePaths', $paths);
     }
 
     public function render()

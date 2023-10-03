@@ -11,9 +11,9 @@
                     @elseif ($step == 3)
                         <livewire:job-requests.create.step3 :place="$place" />
                     @elseif ($step == 4)
-                        <livewire:job-requests.create.step4 :hasTools="$hasTools" />
+                        <livewire:job-requests.create.step4 :tools="$tools" />
                     @elseif ($step == 5)
-                        <livewire:job-requests.create.step5 :hasImage="$hasImage" :imagePath="$imagePath" />
+                        <livewire:job-requests.create.step5 :image="$image" />
                     @elseif ($step == 6)
                         <livewire:job-requests.create.step6 :date="$date" />
                     @elseif ($step == 7)
@@ -87,7 +87,7 @@
                     @endif
                 </div>
             </div>
-            <div class="flex flex-col w-2/5 pl-10 mt-4 font-sans text-2xl bg-gray-900">
+            <div class="flex flex-col w-2/5 pl-10 mt-4 overflow-y-scroll font-sans text-2xl bg-gray-900">
                 @if ($step == 1)
                     <div class="flex flex-col justify-around h-full text-left">
                         <a href="{{ route('blog') }}">Primeros Pasos</a>
@@ -97,52 +97,39 @@
                 @elseif($step > 1)
                     <h3 class="py-2 mt-10 mr-4 text-3xl rounded-lg">Informe</h3>
                     <div class="mt-10 mr-4 text-left">
-                        <div class="py-2 pl-3 mt-6 mb-4 rounded-lg">
+                        <div class="py-2 pl-3 mt-6 mb-2 rounded-lg">
                             <h1>Descripción de la solicitud:</h1>
                             <h1 class="pl-10 text-xl">{{ $description }}</h1>
                         </div>
 
-                        <div class="py-2 pl-3 mb-4 rounded-lg">
+                        <div class="py-2 pl-3 mb-2 rounded-lg">
                             <h1>Categoría:</h1>
                             <h1 class="pl-10 text-xl">{{ $categoryName }}</h1>
                         </div>
 
-                        <div class="py-2 pl-3 mb-4 rounded-lg">
+                        <div class="py-2 pl-3 mb-2 rounded-lg">
                             <h1>Habilidad:</h1>
                             <h1 class="pl-10 text-xl">{{ $skillName }}</h1>
                         </div>
 
-                        <div class="py-2 pl-3 mb-4 rounded-lg">
+                        <div class="py-2 pl-3 mb-2 rounded-lg">
                             <h1>Ubicación:</h1>
                             <h1 class="pl-10 text-xl">{{ $location }}</h1>
                         </div>
-                        <div class="py-2 pl-3 mb-4 rounded-lg">
+                        <div class="py-2 pl-3 mb-2 rounded-lg">
                             <h1>Lugar:</h1>
                             <h1 class="pl-10 text-xl">{{ $place }}</h1>
                         </div>
-                        <div class="py-2 pl-3 mb-4 rounded-lg">
+
+                        <div class="py-2 pl-3 mb-2 rounded-lg">
                             <h1>Herramientas:</h1>
-                            <h1 class="pl-10 text-xl">{{ $hasTools }}</h1>
+                            <h1 class="pl-10 text-xl">{{ $tools }}</h1>
                         </div>
 
-                        <div class="py-2 pl-3 mb-4 rounded-lg">
+                        <div class="py-2 pl-3 mb-2 rounded-lg">
                             <h1>Imágenes:</h1>
-                            <h1 class="pl-10 text-xl">{{ $imagePath }}</h1>
+                            <h1 class="pl-10 text-xl">{{ $image }}</h1>
                         </div>
-
-                        @if (count($images) > 0)
-                            <div class="py-2 pl-3 mb-4 rounded-lg">
-                                <h1>Imágenes:</h1>
-                                <ul class="pl-10 text-xl list-disc">
-                                    @foreach ($images as $image)
-                                        <li>
-                                            <img src="{{ $image->temporaryUrl() }}" alt="Image Preview"
-                                                class="w-32 h-32">
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
 
                         <div class="py-2 pl-3 mb-4 rounded-lg">
                             <h1>Fecha:</h1>

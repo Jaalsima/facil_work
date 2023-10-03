@@ -9,7 +9,7 @@ class JobRequestImage extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['image_path'];
+    protected $guarded = [];
 
     public function jobRequest()
     {

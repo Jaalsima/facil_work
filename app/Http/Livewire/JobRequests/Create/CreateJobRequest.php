@@ -14,15 +14,18 @@ class CreateJobRequest extends Component
 {
     use WithFileUploads;
 
-    public $step = 1, $description = '', $images = [], $hasImage = false;
-    public $jobRequest, $skill, $category, $location, $place, $hasTools, $date, $address, $skillName, $categoryName, $imagePath;
+    public $step = 1;
+    public $description = '';
+    public $image = "No";
+    public $imagePaths = [];
+    public $skill, $category, $location, $place,  $tools, $date, $address, $skillName, $categoryName;
 
     protected $rules = [
         'description'    => 'required',
         'location'       => 'required',
         'place'          => 'required',
-        'has_tools'      => 'required',
-        'has_image'      => 'required',
+        'tools'          => 'required',
+        'image'          => 'required',
         'date'           => 'required',
         'address'        => 'required',
     ];
@@ -34,6 +37,7 @@ class CreateJobRequest extends Component
         'updatePlace',
         'updateTools',
         'updateImage',
+        'updateImagePaths',
         'updateDate',
         'updateAddress',
         'incrementStep',
@@ -64,19 +68,14 @@ class CreateJobRequest extends Component
         $this->place = $place;
     }
 
-    public function updateTools($hasTools)
+    public function updateTools($tools)
     {
-        $this->hasTools = $hasTools;
+        $this->tools = $tools;
     }
 
-    public function updateImage($images)
+    public function updateImage($image)
     {
-        $this->hasImage = $images['hasImage'];
-        if($this->hasImage){
-            $this->images = $images['images'];
-        }else{
-            $this->images = [];
-        }
+        $this->image = $image;
     }
 
     public function updateDate($date)
@@ -116,20 +115,6 @@ class CreateJobRequest extends Component
         $this->emit('backStep' . $this->step);
     }
 
-    public function imageVerification(){
-        if ($this->hasImage && count($this->images) > 0) {
-            foreach ($this->images as $image) {
-                $this->imagePath = $image->store('job_request_images', 'public');
-                JobRequestImage::create([
-                    'job_request_id' => $this->jobRequest->id,
-                    'image_path' => $this->imagePath,
-                ]);
-            }
-        }else{
-            $this->images = [];
-        }
-    }
-
     public function confirmedUser()
     {
         if (Auth::check()) {
@@ -143,44 +128,52 @@ class CreateJobRequest extends Component
                 'skill'       => $this->skill,
                 'location'    => $this->location,
                 'place'       => $this->place,
-                'hasTools'    => $this->hasTools,
-                'hasImage'    => $this->hasImage,
+                'tools'       => $this->tools,
+                'image'       => $this->image,
                 'date'        => $this->date,
                 'address'     => $this->address,
-                'images'      => $this->images,
             ]]);
 
             return redirect()->route('login');
         }
     }
 
+    public function updateImagePaths($paths)
+    {
+        $this->imagePaths = $paths;
+    }
+
     public function createJobRequest()
     {
-    $this->validate();
+        $this->validate();
 
-    // Crear la solicitud de trabajo
-    $jobRequest = new JobRequestModel([
-        'user_id'           => auth()->user()->id,
-        'category_id'       => $this->category,
-        'skill_id'          => $this->skill,
-        'description'       => $this->description,
-        'location'          => $this->location,
-        'place'             => $this->place,
-        'has_tools'         => $this->hasTools ? 'SÍ' : 'NO',
-        'has_image'         => $this->hasImage ? 'SÍ' : 'NO',
-        'date'              => $this->date,
-        'address'           => $this->address,
-        
-    ]);
-    
-    $jobRequest->save();
-    $this->imageVerification();
-        
-    
-    
+        // Crear la solicitud de trabajo
+        $jobRequest = new JobRequestModel([
+            'user_id' => auth()->user()->id,
+            'category_id' => $this->category,
+            'skill_id' => $this->skill,
+            'description' => $this->description,
+            'location' => $this->location,
+            'place' => $this->place,
+            'tools' => $this->tools,
+            'image' => $this->image,
+            'date' => $this->date,
+            'address' => $this->address,
+        ]);
+
+        $jobRequest->save();
+
+        // Almacenar imágenes relacionadas con la solicitud de trabajo
+        foreach ($this->imagePaths as $path) {
+            $jobRequestImage = new JobRequestImage([
+                'job_request_id' => $jobRequest->id,
+                'image_path' => $path,
+            ]);
+            $jobRequestImage->save();
+        }
 
         session()->forget('job_request_data');
 
-        return redirect()->route('create-job-request');
+        return redirect()->route('list-job-request');
     }
 }

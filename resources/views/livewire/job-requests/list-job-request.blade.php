@@ -94,7 +94,9 @@
                                 <td class="px-6 py-4">
                                     @if ($jobRequest->image)
                                         <img src="{{ asset('storage/' . $jobRequest->image) }}"
-                                            alt="{{ $jobRequest->description }}" class="object-cover w-12 h-12">
+                                            alt="Imagen 
+                                            {{ $jobRequest->description }}"
+                                            class="object-cover w-12 h-12">
                                     @else
                                         No hay imagen
                                     @endif

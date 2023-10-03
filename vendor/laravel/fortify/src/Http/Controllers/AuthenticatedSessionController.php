@@ -61,16 +61,16 @@ class AuthenticatedSessionController extends Controller
 
             if ($jobRequestData) {
                 $jobRequest = new JobRequestModel([
-                    'user_id' => auth()->user()->id,
-                    'category_id' => $jobRequestData['category'],
-                    'skill_id' => $jobRequestData['skill'],
-                    'description' => $jobRequestData['description'],
-                    'location' => $jobRequestData['location'],
-                    'place' => $jobRequestData['place'],
-                    'has_tools' => $jobRequestData['hasTools'],
-                    'has_image' => $jobRequestData['hasImage'],
-                    'date' => $jobRequestData['date'],
-                    'address' => $jobRequestData['address'],
+                    'user_id'      => auth()->user()->id,
+                    'category_id'  => $jobRequestData['category'],
+                    'skill_id'     => $jobRequestData['skill'],
+                    'description'  => $jobRequestData['description'],
+                    'location'     => $jobRequestData['location'],
+                    'place'        => $jobRequestData['place'],
+                    'tools'        => $jobRequestData['tools'],
+                    'image'        => $jobRequestData['image'],
+                    'date'         => $jobRequestData['date'],
+                    'address'      => $jobRequestData['address'],
                 ]);
                 $jobRequest->save();
 
