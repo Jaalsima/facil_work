@@ -57,6 +57,11 @@
                 </svg>
                 <p class="mx-2 text-xs">Iglesia</p>
             </label>
+
         </div>
+
+    </div>
+    <div class="mx-auto mb-4 text-center">
+        <x-input-error for="location" />
     </div>
 </div>

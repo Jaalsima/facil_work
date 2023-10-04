@@ -21,7 +21,7 @@ class CreateJobRequest extends Component
     public $skill, $category, $location, $place,  $tools, $date, $address, $skillName, $categoryName;
 
     protected $rules = [
-        'description'    => 'required',
+        'description'    => 'required|string',
         'location'       => 'required',
         'place'          => 'required',
         'tools'          => 'required',

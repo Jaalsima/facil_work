@@ -8,6 +8,9 @@ class Step2 extends Component
 {
     public $location = '';
 
+    protected $rules = [
+        'location' => 'required',
+    ];
     protected $listeners = [
         'currentStep2',
         'backStep2',
@@ -15,6 +18,7 @@ class Step2 extends Component
 
     public function currentStep2()
     {
+        $this->validate();
         $this->emit('updateLocation', $this->location);
         $this->emit('incrementStep');
     }

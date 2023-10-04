@@ -24,6 +24,9 @@ class Step1 extends Component
     protected $listeners = [
         'currentStep1',
     ];
+    protected $rules = [
+        'description' => 'required|min:20',
+    ];
 
     public function mount($description)
     {
@@ -44,8 +47,10 @@ class Step1 extends Component
 
     public function currentStep1()
     {
-        $this->descriptionEntered = ! empty($this->description);
-        $this->categoryEntered = ! empty($this->selectedCategory);
+        $this->validate();
+
+        $this->descriptionEntered = !empty($this->description);
+        $this->categoryEntered = !empty($this->selectedCategory);
         $this->emit('updateDescription', [
             'description' => $this->description,
             'category' => $this->selectedCategory,

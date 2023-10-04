@@ -34,4 +34,7 @@
             </label>
         </div>
     </div>
+    <div class="mx-auto mb-4 text-center">
+        <x-input-error for="tools" />
+    </div>
 </div>

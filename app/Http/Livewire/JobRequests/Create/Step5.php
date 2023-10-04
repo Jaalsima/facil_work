@@ -14,6 +14,9 @@ class Step5 extends Component
     public $image = "No";
     public $imagePaths = [];
 
+    protected $rules = [
+        'image' => 'required',
+    ];
     protected $listeners = [
         'currentStep5',
         'backStep5',
@@ -21,6 +24,7 @@ class Step5 extends Component
 
     public function currentStep5()
     {
+        $this->validate();
         $this->emit('updateImage', $this->image);
         $this->emit('incrementStep');
     }

@@ -4,7 +4,9 @@
     <x-input class="mb-24 text-2xl bg-gray-700 h-28 shadow-black" type="text" wire:model="address" />
 
     <div id="map" class="h-48 mx-auto mb-12 rounded-lg w-96"></div>
-
+    <div class="mx-auto mb-4 text-center">
+        <x-input-error for="address" />
+    </div>
     <script>
         function initMap() {
             // Coordenadas iniciales para centrar el mapa

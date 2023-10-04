@@ -7,5 +7,7 @@
             class="mb-6 text-2xl text-black bg-transparent border-white rounded-lg shadow-lg focus:ring-0 focus:border-yellow-700 h-28 shadow-white invert"
             type="datetime-local" name="date-job-request" id="date-job-request" wire:model="date">
     </div>
-
+    <div class="mx-auto mb-4 text-center">
+        <x-input-error for="date" />
+    </div>
 </div>

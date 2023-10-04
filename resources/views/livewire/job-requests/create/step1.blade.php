@@ -3,6 +3,7 @@
         <p class="mb-12">En qué te podemos <br> ayudar?</p>
     </label>
     <x-input class="mb-12 text-2xl bg-gray-700 h-28 shadow-black" type="text" wire:model="description" />
+    <x-input-error for="description" />
 
     <div>
         @if ($descriptionEntered)

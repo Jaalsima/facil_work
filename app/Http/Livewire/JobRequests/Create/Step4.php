@@ -8,6 +8,10 @@ class Step4 extends Component
 {
     public $tools;
 
+    protected $rules = [
+        'tools' => 'required',
+    ];
+
     protected $listeners = [
         'currentStep4',
         'backStep4',
@@ -15,6 +19,7 @@ class Step4 extends Component
 
     public function currentStep4()
     {
+        $this->validate();
         $this->emit('updateTools', $this->tools);
         $this->emit('incrementStep');
     }

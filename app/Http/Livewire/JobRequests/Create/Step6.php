@@ -8,6 +8,9 @@ class Step6 extends Component
 {
     public $date;
 
+    protected $rules = [
+        'date' => 'required',
+    ];
     protected $listeners = [
         'currentStep6',
         'backStep6',
@@ -15,6 +18,7 @@ class Step6 extends Component
 
     public function currentStep6()
     {
+        $this->validate();
         $this->emit('updateDate', $this->date);
         $this->emit('incrementStep');
     }

@@ -8,6 +8,9 @@ class Step7 extends Component
 {
     public $address;
 
+    protected $rules = [
+        'address' => 'required',
+    ];
     protected $listeners = [
         'currentStep7',
         'backStep7',
@@ -15,6 +18,7 @@ class Step7 extends Component
 
     public function currentStep7()
     {
+        $this->validate();
         $this->emit('updateAddress', $this->address);
         $this->emit('confirmedUser');
     }
