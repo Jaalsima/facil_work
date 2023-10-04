@@ -60,4 +60,10 @@ class Step1 extends Component
             $this->emit('incrementStep');
         }
     }
+
+
+    public function render()
+    {
+        return view('livewire.job-requests.create.step1');
+    }
 }

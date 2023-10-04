@@ -3,6 +3,7 @@
 namespace Laravel\Fortify\Http\Controllers;
 
 use App\Models\JobRequest as JobRequestModel;
+use App\Models\JobRequestImage;
 use Illuminate\Contracts\Auth\StatefulGuard;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -73,7 +74,16 @@ class AuthenticatedSessionController extends Controller
                     'address'      => $jobRequestData['address'],
                 ]);
                 $jobRequest->save();
+                if ($jobRequestData['image'] === "Si") {
 
+                    foreach ($jobRequestData['imagePaths'] as $path) {
+                        $jobRequestImage = new JobRequestImage([
+                            'job_request_id' => $jobRequest->id,
+                            'image_path' => $path,
+                        ]);
+                        $jobRequestImage->save();
+                    }
+                }
                 // Limpia los datos almacenados en la sesión
                 $request->session()->forget('job_request_data');
             }

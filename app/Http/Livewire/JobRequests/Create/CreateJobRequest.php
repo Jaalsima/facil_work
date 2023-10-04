@@ -16,7 +16,7 @@ class CreateJobRequest extends Component
 
     public $step = 1;
     public $description = '';
-    public $image = "No";
+    public $image;
     public $imagePaths = [];
     public $skill, $category, $location, $place,  $tools, $date, $address, $skillName, $categoryName;
 
@@ -44,6 +44,7 @@ class CreateJobRequest extends Component
         'decrementStep',
         'submitJobRequest',
         'confirmedUser',
+
     ];
 
     public function updateDescription($data)
@@ -76,6 +77,11 @@ class CreateJobRequest extends Component
     public function updateImage($image)
     {
         $this->image = $image;
+    }
+
+    public function updateImagePaths($paths)
+    {
+        $this->imagePaths = $paths;
     }
 
     public function updateDate($date)
@@ -121,7 +127,6 @@ class CreateJobRequest extends Component
             $this->step++;
             $this->createJobRequest();
         } else {
-
             session(['job_request_data' => [
                 'description' => $this->description,
                 'category'    => $this->category,
@@ -130,6 +135,7 @@ class CreateJobRequest extends Component
                 'place'       => $this->place,
                 'tools'       => $this->tools,
                 'image'       => $this->image,
+                'imagePaths'  => $this->imagePaths,
                 'date'        => $this->date,
                 'address'     => $this->address,
             ]]);
@@ -138,32 +144,25 @@ class CreateJobRequest extends Component
         }
     }
 
-    public function updateImagePaths($paths)
-    {
-        $this->imagePaths = $paths;
-    }
-
     public function createJobRequest()
     {
         $this->validate();
 
-        // Crear la solicitud de trabajo
         $jobRequest = new JobRequestModel([
-            'user_id' => auth()->user()->id,
+            'user_id'     => auth()->user()->id,
             'category_id' => $this->category,
-            'skill_id' => $this->skill,
+            'skill_id'    => $this->skill,
             'description' => $this->description,
-            'location' => $this->location,
-            'place' => $this->place,
-            'tools' => $this->tools,
-            'image' => $this->image,
-            'date' => $this->date,
-            'address' => $this->address,
+            'location'    => $this->location,
+            'place'       => $this->place,
+            'tools'       => $this->tools,
+            'image'       => $this->image,
+            'date'        => $this->date,
+            'address'     => $this->address,
         ]);
 
         $jobRequest->save();
 
-        // Almacenar imágenes relacionadas con la solicitud de trabajo
         foreach ($this->imagePaths as $path) {
             $jobRequestImage = new JobRequestImage([
                 'job_request_id' => $jobRequest->id,

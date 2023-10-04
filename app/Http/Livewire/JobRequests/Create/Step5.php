@@ -11,7 +11,7 @@ class Step5 extends Component
 {
     use WithFileUploads;
 
-    public $image = "No";
+    public $image;
     public $imagePaths = [];
 
     protected $rules = [
@@ -22,10 +22,23 @@ class Step5 extends Component
         'backStep5',
     ];
 
+    public function imageValidation()
+    {
+        if ($this->image === "Si" && count($this->imagePaths) <= 0) {
+            $this->validate([
+                'imagePaths' => 'required'
+            ]);
+        } elseif ($this->image === "Si" && count($this->imagePaths) > 0) {
+            $this->saveImages();
+        }
+    }
+
     public function currentStep5()
     {
         $this->validate();
+        $this->imageValidation();
         $this->emit('updateImage', $this->image);
+        $this->emit('saveImages');
         $this->emit('incrementStep');
     }
 
