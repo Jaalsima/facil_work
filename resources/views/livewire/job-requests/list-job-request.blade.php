@@ -91,16 +91,7 @@
                                 <td class="px-6 py-4">{{ $jobRequest->location }}</td>
                                 <td class="px-6 py-4">{{ $jobRequest->place }}</td>
                                 <td class="px-6 py-4">{{ $jobRequest->tools }}</td>
-                                <td class="px-6 py-4">
-                                    @if ($jobRequest->image)
-                                        <img src="{{ asset('storage/' . $jobRequest->image) }}"
-                                            alt="Imagen 
-                                            {{ $jobRequest->description }}"
-                                            class="object-cover w-12 h-12">
-                                    @else
-                                        No hay imagen
-                                    @endif
-                                </td>
+                                <td class="px-6 py-4"><a href="#">{{ $jobRequest->image }}</a></td>
                                 <td class="px-6 py-4">{{ $jobRequest->date }}</td>
                                 <td class="px-6 py-4">{{ $jobRequest->address }}</td>
                                 <td class="px-6 py-4">{{ $jobRequest->status }}</td>

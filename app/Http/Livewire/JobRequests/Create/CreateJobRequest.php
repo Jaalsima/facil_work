@@ -14,7 +14,7 @@ class CreateJobRequest extends Component
 {
     use WithFileUploads;
 
-    public $step = 1;
+    public $step = 8;
     public $description = '';
     public $image;
     public $imagePaths = [];
@@ -124,7 +124,6 @@ class CreateJobRequest extends Component
     public function confirmedUser()
     {
         if (Auth::check()) {
-            $this->step++;
             $this->createJobRequest();
         } else {
             session(['job_request_data' => [

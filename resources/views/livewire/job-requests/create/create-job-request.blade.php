@@ -97,47 +97,41 @@
                 @elseif($step > 1)
                     <h3 class="py-2 mt-10 mr-4 text-3xl rounded-lg">Informe</h3>
                     <div class="mt-10 mr-4 text-left">
-                        <div class="py-2 pl-3 mt-6 mb-2 rounded-lg">
-                            <h1>Descripción de la solicitud:</h1>
-                            <h1 class="pl-10 text-xl">{{ $description }}</h1>
+                        <div class="flex py-2 pl-3 mb-2 rounded-lg">
+                            <h1 class="w-1/4">Solicitud:</h1>
+                            <h1 class="w-3/4 pl-10 text-xl">{{ $description }}</h1>
                         </div>
-
-                        <div class="py-2 pl-3 mb-2 rounded-lg">
-                            <h1>Categoría:</h1>
-                            <h1 class="pl-10 text-xl">{{ $categoryName }}</h1>
+                        <div class="flex py-2 pl-3 mb-2 rounded-lg">
+                            <h1 class="w-1/4">Categoría:</h1>
+                            <h1 class="w-3/4 pl-10 text-xl">{{ $categoryName }}</h1>
                         </div>
-
-                        <div class="py-2 pl-3 mb-2 rounded-lg">
-                            <h1>Habilidad:</h1>
-                            <h1 class="pl-10 text-xl">{{ $skillName }}</h1>
+                        <div class="flex py-2 pl-3 mb-2 rounded-lg">
+                            <h1 class="w-1/4">Habilidad:</h1>
+                            <h1 class="w-3/4 pl-10 text-xl">{{ $skillName }}</h1>
                         </div>
-
-                        <div class="py-2 pl-3 mb-2 rounded-lg">
-                            <h1>Ubicación:</h1>
-                            <h1 class="pl-10 text-xl">{{ $location }}</h1>
+                        <div class="flex py-2 pl-3 mb-2 rounded-lg">
+                            <h1 class="w-1/4">Ubicación:</h1>
+                            <h1 class="w-3/4 pl-10 text-xl">{{ $location }}</h1>
                         </div>
-                        <div class="py-2 pl-3 mb-2 rounded-lg">
-                            <h1>Lugar:</h1>
-                            <h1 class="pl-10 text-xl">{{ $place }}</h1>
+                        <div class="flex py-2 pl-3 mb-2 rounded-lg">
+                            <h1 class="w-1/4">Lugar:</h1>
+                            <h1 class="w-3/4 pl-10 text-xl">{{ $place }}</h1>
                         </div>
-
-                        <div class="py-2 pl-3 mb-2 rounded-lg">
-                            <h1>Herramientas:</h1>
-                            <h1 class="pl-10 text-xl">{{ $tools }}</h1>
+                        <div class="flex py-2 pl-3 mb-2 rounded-lg">
+                            <h1 class="w-1/4">Herramientas:</h1>
+                            <h1 class="w-3/4 pl-10 text-xl">{{ $tools }}</h1>
                         </div>
-
-                        <div class="py-2 pl-3 mb-2 rounded-lg">
-                            <h1>Imágenes:</h1>
-                            <h1 class="pl-10 text-xl">{{ $image }}</h1>
+                        <div class="flex py-2 pl-3 mb-2 rounded-lg">
+                            <h1 class="w-1/4">Imágenes:</h1>
+                            <h1 class="w-3/4 pl-10 text-xl">{{ $image }}</h1>
                         </div>
-
-                        <div class="py-2 pl-3 mb-4 rounded-lg">
-                            <h1>Fecha:</h1>
-                            <h1 class="pl-10 text-xl">{{ $date }}</h1>
+                        <div class="flex py-2 pl-3 mb-2 rounded-lg">
+                            <h1 class="w-1/4">Fecha:</h1>
+                            <h1 class="w-3/4 pl-10 text-xl">{{ $date }}</h1>
                         </div>
-                        <div class="py-2 pl-3 mb-4 rounded-lg">
-                            <h1>Dirección:</h1>
-                            <h1 class="pl-10 text-xl">{{ $address }}</h1>
+                        <div class="flex py-2 pl-3 mb-2 rounded-lg">
+                            <h1 class="w-1/4">Dirección:</h1>
+                            <h1 class="w-3/4 pl-10 text-xl">{{ $address }}</h1>
                         </div>
                     </div>
                 @endif

@@ -14,9 +14,7 @@ class Step8 extends Component
 
     public function currentStep8()
     {
-        if (Auth::check()) {
-            $this->createJobRequest();
-        }
+        $this->emit('confirmedUser');
     }
 
     public function backStep8()

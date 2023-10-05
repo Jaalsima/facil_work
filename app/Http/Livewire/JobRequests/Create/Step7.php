@@ -20,7 +20,7 @@ class Step7 extends Component
     {
         $this->validate();
         $this->emit('updateAddress', $this->address);
-        $this->emit('confirmedUser');
+        $this->emit('incrementStep');
     }
 
     public function backStep7()

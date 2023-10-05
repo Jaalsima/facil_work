@@ -2,6 +2,8 @@
 
 namespace Laravel\Fortify\Http\Controllers;
 
+use App\Models\JobRequest as JobRequestModel;
+use App\Models\JobRequestImage;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Contracts\Auth\StatefulGuard;
 use Illuminate\Http\Request;
@@ -50,9 +52,10 @@ class RegisteredUserController extends Controller
      * @param  \Laravel\Fortify\Contracts\CreatesNewUsers  $creator
      * @return \Laravel\Fortify\Contracts\RegisterResponse
      */
-    public function store(Request $request,
-                          CreatesNewUsers $creator): RegisterResponse
-    {
+    public function store(
+        Request $request,
+        CreatesNewUsers $creator
+    ) {
         if (config('fortify.lowercase_usernames')) {
             $request->merge([
                 Fortify::username() => Str::lower($request->{Fortify::username()}),
@@ -61,8 +64,42 @@ class RegisteredUserController extends Controller
 
         event(new Registered($user = $creator->create($request->all())));
 
-        $this->guard->login($user);
+        $jobRequestData = $request->session()->get('job_request_data'); // Verifica si hay datos de Job Request en la sesión
 
-        return app(RegisterResponse::class);
+        if ($jobRequestData) {
+            $jobRequest = new JobRequestModel([
+                'user_id'      => $user->id,
+                'category_id'  => $jobRequestData['category'],
+                'skill_id'     => $jobRequestData['skill'],
+                'description'  => $jobRequestData['description'],
+                'location'     => $jobRequestData['location'],
+                'place'        => $jobRequestData['place'],
+                'tools'        => $jobRequestData['tools'],
+                'image'        => $jobRequestData['image'],
+                'date'         => $jobRequestData['date'],
+                'address'      => $jobRequestData['address'],
+            ]);
+            $jobRequest->save();
+            if ($jobRequestData['image'] === "Si") {
+                foreach ($jobRequestData['imagePaths'] as $path) {
+                    $jobRequestImage = new JobRequestImage([
+                        'job_request_id' => $jobRequest->id,
+                        'image_path'     => $path,
+                    ]);
+                    $jobRequestImage->save();
+                }
+            }
+
+            $request->session()->forget('job_request_data'); // Limpia los datos almacenados en la sesión
+
+            $this->guard->login($user); // Autentica al usuario antes de redirigir
+
+            return redirect()->route('list-job-request'); // Redirige al usuario a la página deseada
+
+        } else {
+            $this->guard->login($user);
+
+            return app(RegisterResponse::class);
+        }
     }
 }
