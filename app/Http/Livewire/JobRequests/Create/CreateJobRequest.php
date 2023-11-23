@@ -14,7 +14,7 @@ class CreateJobRequest extends Component
 {
     use WithFileUploads;
 
-    public $step = 8;
+    public $step = 1;
     public $description = '';
     public $image;
     public $imagePaths = [];
